@@ -32,9 +32,17 @@ a {
       display: flex;
       list-style: none;
       &__left-item {
-
       }
-
+      &__right-item {
+      }
+    }
+    &__right-box {
+      display: flex;
+      list-style: none;
+      &__left-item {
+      }
+      &__right-item {
+      }
     }
   }
 }
