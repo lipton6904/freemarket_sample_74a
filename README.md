@@ -45,7 +45,7 @@
 |name|string|null: false|
 |price|integer|null: false|
 |explanation|text|nul: false|
-|category_id|references|null: false|foreign_key: true|
+|category|references|null: false|foreign_key: true|
 |size|references|null: false|foreign_key: true|
 |brand|references|foreign_key: true|
 |condition_id|references|null: false|foreign_key: true|
@@ -65,7 +65,7 @@
 ##image
 |Column|Type|Options|
 |------|----|-------|
-|image|string|
+|image|string|null: false|
 |item|reference|null: false|index: true|foreign_key: true|
 ##Association
 -belongs_to :item
@@ -95,3 +95,4 @@
 |buyer_id|references|null: false|foreign_key: true|
 ##Association
 -belongs_to :user
+-belongs_to :item
