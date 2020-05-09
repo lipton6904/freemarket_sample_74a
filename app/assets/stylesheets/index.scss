@@ -43,8 +43,6 @@ span {
 }
 
 .main {
-  margin: 0;
-  padding: 0;
   background: #f8f8f8;
   &__main-visual {
     @include back-ground;
@@ -54,6 +52,7 @@ span {
     height: 560px;
     position: relative;
     padding: 0 60px;
+    color: #fff;
     &__content {
       max-width: 1280px;
       width: 100%;
@@ -63,13 +62,10 @@ span {
         @include t-shadow;
         font-size: 60px;
         line-height: 1.2;
-        color: #fff;
       }
       &__text {
         @include t-shadow;
         font-size: 18px;
-        line-height: 1.77778;
-        color: #fff;
         margin: 16px 0 0 0;
       }
       &__btn {
@@ -81,12 +77,12 @@ span {
   &__top-introduction {
     padding: 60px 20px;
     &__subtitle {
+      position: relative;
       text-align: center;
       font-size: 26px;
       font-weight: bold;
       margin-bottom: 25px;
       padding-bottom: 15px;
-      position: relative;
       &__line {
         @include line
       }
@@ -97,24 +93,24 @@ span {
       width: 100%;
       margin: 0 auto;
       &__list {
+        flex-direction: column;
         width: 30%;
         margin: 16px 5% 0 0;
         text-align: left;
-        flex-direction: column;
         &__pict {
           position: relative;
           &__number {
+            display: inline-block;
             position: absolute;
             top: 0;
             left: 0;
             background-color: #3CCACE;
-            display: inline-block;
+            color: #fff;
             border-radius: 4%;
             font-size: 30px;
             text-align: center;
             margin: 0 5px 0 0;
             padding: 10px 20px;
-            color: #fff;
           }
         }
         &__text {
@@ -137,8 +133,8 @@ span {
     background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
     background-position: bottom right;
     height: 400px;
+    color: #fff;
     &__inner {
-      color: #fff;
       @include t-shadow;
       text-align: left;
       max-width: 1040px;
@@ -161,22 +157,22 @@ span {
     background-color: #fff;
     display: block;
     &__head {
-      font-size: 27px;
+      position: relative;
       text-align: center;
-      margin: 0 0 40px;
+      font-size: 27px;
       font-weight: bold;
+      margin: 0 0 40px;
       margin-bottom: 25px;
       padding-bottom: 15px;
-      position: relative;
       &__line {
         @include line
       }
     }
     &__item-box {
+      display: flex;
       max-width: calc(1040px + 20px);
       width: 100%;
       margin: 0 auto;
-      display: flex;
       flex-wrap: wrap;
       &__item {
         display: flex;
@@ -209,18 +205,18 @@ span {
     height: 100%;
     &__title {
       text-align: center;
+      font-weight: bold;
       font-size: 28px;
       line-height: 1.4;
-      font-weight: bold;
     }
     &__product-box {
       display: block;
       &__head {
+        text-decoration: none;
         text-align: center;
         font-size: 24px;
-        text-decoration: none;
-        color: #3CCACE;
         font-weight: bold;
+        color: #3CCACE;
       }
       &__lists {
         width: 780px;
@@ -231,7 +227,6 @@ span {
           width: 220px;
           display: inline-block;
           &__img img {
-            // position: absolute;
             top: 0;
             left: 0;
             right: 0;
@@ -242,7 +237,7 @@ span {
             object-fit: cover;
           }
           &__body {
-            background-color: white;
+            background-color: #fff;
             color: #333;
             padding: 16px;
             &__name {
@@ -274,16 +269,12 @@ span {
     }
   }
 
-
-
-
   &__app-banner {
     @include back-ground;
     background-image: url(material/pict/bg-appBanner-pict.jpg);
     padding: 100px 40px;
     background-position: center;
     color: #fff;
-
     &__inner {
       text-align: center;
       &__title {
@@ -293,28 +284,23 @@ span {
         line-height: 1.4;
       }
       &__text {
-        font-size: 35px;
         @include t-shadow;
-      }
-      
-      &__btn {
+        font-size: 35px;
       }
     }
   }
 
   &__exisibition {
-    width: 120px;
     background: #3CCACE;
+    position: fixed;
     border-radius: 4%;
+    width: 120px;
     bottom: 32px;
     right: 32px;
-    position: fixed;
     padding: 15px;
     text-align: center;
     &__text {
       color: #fff;
-    }
-    &__icon {
     }
   }
 }
