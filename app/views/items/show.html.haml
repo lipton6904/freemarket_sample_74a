@@ -1,3 +1,4 @@
+= render "header"
 .main
   .main__show-main
     .main__show-main__content-right
@@ -65,14 +66,13 @@
         %li
           = link_to "#" do
             %i.fa.angele-left
-            %span <
-            %span 前の商品
+            .item-link < 前の商品
         %li
           = link_to "#" do
-            %span 後ろの商品
-            %span >
+            .item-link 後ろの商品 >
             %i.fa.angele-right
       .related-items
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
+-# = render "footer"

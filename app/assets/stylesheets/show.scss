@@ -18,11 +18,12 @@
             margin: 16px 0 0;
             .main_image{
               width: 560px;
-              align-items: center;
+              margin: 0 auto;
               .main_photo {
-              }
+                // margin: 0 auto;
                 .show_index{
                   display: flex;
+                  justify-content: center;
                   margin-top: 10px;
                   &__content{
                     width: 25%;
@@ -33,6 +34,7 @@
                     }
                   }
                 }
+              }
             }
           }
           &__price{
@@ -41,12 +43,18 @@
             display: flex;
             flex-direction: column;
             .font-size{
+              color: black;
               font-size: 40px;
               font-weight: bold;
               margin: 0 10px 0 0;
             }
             &__detail{
-              font-size: 16px;
+              .tax{
+                color: black;
+              }
+              .derivery-fee{
+                color: black;
+              }
             }
           }
           &__item-detail{
@@ -89,9 +97,10 @@
           } 
         } 
       &__top-content__links{
+        
         display: flex;
         justify-content: space-between;
-        span{
+        .item-link{
           text-decoration: none;
           color: #3CCACE;
         }
@@ -99,13 +108,11 @@
       .related-items{
         display: block;
         margin: 24px 0 8px;
-        padding-left: 35px;
         span{
         color: #3CCACE;
         text-decoration: none;
         font-weight: bold;
         font-size: 22px;
-        // position: relative;
         }
       } 
     }
