@@ -27,4 +27,4 @@
 /config/master.key
 public/uploads/*
 
-echo .DS_Store
+.DS_Store
