@@ -1,0 +1,93 @@
+.main {
+  background: #f8f8f8;
+  &__show-main {
+    padding: 40px;
+    margin: 0 auto;
+    &__content-right{
+      width: 700px;
+      margin: 0 auto;
+      &__top-content__item-box{
+        background-color: #fff;
+        padding: 24px 40px 40px;
+        &__name{
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        &__body{
+          margin: 16px 0 0;
+          .main_image{
+            display: flex;
+            flex-direction: column;
+            width: 560px;
+            align-items: center;
+            margin: 0 auto;
+            .main_photo {
+            object-fit: cover;
+            height: 346px;
+            // background-color: blue; //メイン写真範囲
+            }
+              .show_index{
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                &__content{
+                  width: 25%;
+                  margin: 0 10px 0 0;
+                  .png{
+                    object-fit: cover;
+                    height: 87px; //画像修正確認すること
+                  }
+                }
+              }
+          }
+        }
+        &__price{
+          margin: 24px  24px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          .font-size{
+            font-size: 46px;
+            font-weight: bold;
+            margin: 0 10px 0 0;
+          }
+          &__detail{
+            font-size: 16px;
+          }
+        }
+        &__item-detail{
+          line-height: 1.5;
+          font-size: 18px;
+          margin-bottom: 30px;
+        }
+        .table{
+          margin-bottom: 20px;
+          tr{
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+            th{
+              width: 20%;
+              background-color: #eee;
+              font-weight: 400;
+              padding: 8px;
+              border: 1px solid #dedede;
+              font-size: 14px;
+              text-align: center; 
+            }
+            td{
+              width: 61%;
+              padding: 15px 15px;
+              border: 1px solid #dedede;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+ol, ul {
+  list-style: none;
+}
