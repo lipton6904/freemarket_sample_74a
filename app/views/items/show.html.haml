@@ -17,7 +17,7 @@
                     = image_tag 'material/show/index3.png', size: "130x87", class: "png"
 
           .main__show-main__content-right__top-content__item-box__price
-            %span.font-size 30000
+            %span.font-size ¥30000
             .main__show-main__content-right__top-content__item-box__price__detail
               %span.tax （税込）
               %span.derivery-fee 送料込み
@@ -34,13 +34,13 @@
                   %th カテゴリー
                   %td
                     = link_to "#" do
-                      ベビー・キッズ
+                      %span ベビー・キッズ
                     %br  
                     = link_to "#" do
-                      ベビー服（男女兼用）　~95cm
+                      %span ベビー服（男女兼用）　~95cm
                     %br
                     = link_to "#" do
-                      アウター
+                      %span アウター
                 %tr
                   %th ブランド
                   %td 
@@ -65,12 +65,14 @@
         %li
           = link_to "#" do
             %i.fa.angele-left
+            %span <
             %span 前の商品
         %li
           = link_to "#" do
             %span 後ろの商品
+            %span >
             %i.fa.angele-right
       .related-items
         = link_to "#" do
-          ベビーキッズをもっと見る
+          %span ベビーキッズをもっと見る
         .product-lists
