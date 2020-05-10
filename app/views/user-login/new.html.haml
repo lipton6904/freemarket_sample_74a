@@ -2,7 +2,7 @@
   %header.main-header
     .main-logo
       = link_to do
-        =image_tag '/assets/material/logo/logo.png'
+        = image_tag asset_path("material/logo/logo.png")
 
   %div.main-content
     .small-content
@@ -12,13 +12,13 @@
       .bottom-content 
         .bottom-in-content
           = link_to "#", class: "btn-default btn-mail" do
-            
+            = icon('far', 'envelope')
             メールアドレスで登録
           = link_to "#", class: "btn-default btn-facebook" do
             = icon('fab', 'facebook-square')
             Facebookで登録
           = link_to "#", class: "btn-default btn-google" do
-
+            = icon('fab', 'google')
             Googleで登録
 
 
@@ -33,7 +33,7 @@
         = link_to "取引に関する表記",""
     .footer-logo
       = link_to "" do
-        = image_tag '/assets/material/logo/logo-white.png'
+        = image_tag asset_path("material/logo/logo-gray.png")
 
     %p
       ©️ FURIMA
