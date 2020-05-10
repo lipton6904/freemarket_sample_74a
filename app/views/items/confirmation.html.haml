@@ -1,7 +1,7 @@
 %header.header-icon-only
   .header-icon-only__title
     -# = link_to root_path
-    = image_tag 'material/logo/logo.png', size: '185x49'
+    = image_tag asset_path('material/logo/logo.png'), size: '185x49'
 .confirmation
   .confirmation__main
     %section.confirmation__main__product-continer
@@ -11,9 +11,7 @@
         .confirmation__main__product-continer__buy-item__inner
           .confirmation__main__product-continer__buy-item__inner__box
             .confirmation__main__product-continer__buy-item__inner__box__item-image
-              = image_tag 'material/icon/member_photo_noimage_thumb.png'
-            -# .confirmation__main__product-continer__buy-item__inner__box__item-image {background-image: url(<%= asset_path 'material/icon/member_photo_noimage_thumb.png' %>)}
-              -# link_toで書き換え'/aseets/images/material/icon/member_photo_noimage_thumb.png'
+              = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
             .confirmation__main__product-continer__buy-item__inner__box__item-detail
               .confirmation__main__product-continer__buy-item__inner__box__item-detail__name
                 顔イメージ
