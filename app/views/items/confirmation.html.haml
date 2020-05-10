@@ -1,0 +1,65 @@
+%header.header-icon-only
+  .header-icon-only__title
+    -# = link_to root_path
+    = image_tag 'material/logo/logo.png', size: '185x49'
+.confirmation
+  .confirmation__main
+    %section.confirmation__main__product-continer
+      %h2.confirmation__main__product-continer__title
+        購入内容の確認
+      .confirmation__main__product-continer__buy-item
+        .confirmation__main__product-continer__buy-item__inner
+          .confirmation__main__product-continer__buy-item__inner__box
+            .confirmation__main__product-continer__buy-item__inner__box__item-image
+              = image_tag 'material/icon/member_photo_noimage_thumb.png'
+            -# .confirmation__main__product-continer__buy-item__inner__box__item-image {background-image: url(<%= asset_path 'material/icon/member_photo_noimage_thumb.png' %>)}
+              -# link_toで書き換え'/aseets/images/material/icon/member_photo_noimage_thumb.png'
+            .confirmation__main__product-continer__buy-item__inner__box__item-detail
+              .confirmation__main__product-continer__buy-item__inner__box__item-detail__name
+                顔イメージ
+              %span.confirmation__main__product-continer__buy-item__inner__box__item-detail__price
+                ¥200
+                %span.confirmation__main__product-continer__buy-item__inner__box__item-detail__price__included
+                  （税込）送料込み
+      .confirmation__main__product-continer__payment
+        .confirmation__main__product-continer__payment__inner
+          -# form_withまたはform_forで実装
+          %ul.confirmation__main__product-continer__payment__inner__price-table
+            %li.confirmation__main__product-continer__payment__inner__price-table__label
+              支払い金額
+            %li.confirmation__main__product-continer__payment__inner__price-table__price
+              %span.confirmation__main__product-continer__payment__inner__price-table__label__price__decoration
+                ¥880
+          %ul.confirmation__main__product-continer__payment__inner__point-table
+            %li.confirmation__main__product-continer__payment__inner__point-table__point-use
+              .confirmation__main__product-continer__payment__inner__point-table__point-use__check-box
+                □
+                -# のちにアイコンに置き換え
+              .confirmation__main__product-continer__payment__inner__point-table__point-use__content
+                ポイントを使用 (所持ポイント: P0)
+      .confirmation__main__product-continer__payment-method
+        .confirmation__main__product-continer__payment-method__inner
+          支払い方法
+          .confirmation__main__product-continer__payment-method__inner__link
+            -# リンク先を入れる
+            %p.confirmation__main__product-continer__payment-method__inner__link__icon
+              +
+              %span.confirmation__main__product-continer__payment-method__inner__link__icon__registration
+                登録してください
+      .confirmation__main__product-continer__shipping-address
+        .confirmation__main__product-continer__shipping-address__inner
+          配送先
+          .confirmation__main__product-continer__shipping-address__inner__link
+            -# リンク先を入れる
+            %p.confirmation__main__product-continer__shipping-address__inner__link__icon
+              +
+              %span.confirmation__main__product-continer__shipping-address__inner__link__icon__registration
+                登録してください
+      .confirmation__main__product-continer__buy-user-text
+        %p.confirmation__main__product-continer__buy-user-text__info-text
+          郵便局/コンビニ受取をご希望の方は、購入後に
+          %span
+            取引画面
+          から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+          .confirmation__main__product-continer__buy-user-text__info-text__btn
+            購入する
