@@ -1,0 +1,165 @@
+@mixin border-line {
+  background-color: #fff;
+  border-bottom: solid 1px;
+  border-color: #dedede;
+  padding: 32px 16px;
+}
+@mixin inner {
+  max-width: 343px;
+  margin: 0 auto;
+}
+
+.header-icon-only {
+  background: #f8f8f8;
+  width: 100%;
+  height: 128px;
+  text-align: center;
+  &__title {
+    margin-bottom: 40px;
+    padding: 40px 0 10px;
+    margin-right: 30px;
+    border-radius: 4px;
+  }
+}
+
+.confirmation {
+    background: #f8f8f8;
+    background-repeat: no-repeat;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  &__main {
+    border-style: solid;
+    border-width: 0;
+      &__product-continer {
+        width: 700px;
+        margin: 0 auto;
+        &__title {
+          @include border-line;
+          font-size: 22px;
+          text-align: center;
+          font-weight: bold;
+          padding: 32px;
+        }
+        &__buy-item {
+          @include border-line;
+          &__inner {
+            @include inner;
+            &__box {
+              display: flex;
+              &__item-image img {
+                width: 80px;
+              }
+              &__item-detail {
+                margin-left: 16px;
+                &__name {
+                  font-size: 14px;
+                  line-height: 1.5;
+                  text-align: left;
+                  margin: 0;
+                  padding: 0 0 8px;
+                }
+                &__price {
+                  font-size: 15px;
+                  font-weight: bold;
+                  text-align: left;
+                  margin: 0;
+                  &__included {
+                    font-size: 12px
+                  }
+                }
+              }
+            }
+          }
+        }
+      &__payment {
+        @include border-line;
+        &__inner {
+          @include inner;
+          &__price-table {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+            list-style: none;
+            &__label {
+              text-align: left;
+            }
+            &__price {
+              &__decoration{
+              }
+            }
+            
+          }
+          &__point-table {
+            list-style: none;
+            width: 100%;
+            &__point-use {
+              text-align: left;
+              display: flex;
+              color: #808080;
+              padding-top: 10px;
+              &__check-box {
+              }
+              &__content {
+                padding-left: 10px;
+              }
+            }
+          }
+        }
+      }
+      &__payment-method {
+        @include border-line;
+        &__inner {
+          @include inner;
+          font-weight: bold;
+          &__link {
+            &__icon {
+              font-weight: normal;
+              &__registration {
+                color: #0099e8;
+              }
+            }
+          }
+        }
+      }
+      &__shipping-address {
+        @include border-line;
+        &__inner {
+          @include inner;
+          font-weight: bold;
+          &__link {
+            &__icon {
+              font-weight: normal;
+              &__registration {
+                color: #0099e8;
+              }
+            }
+          }
+        }
+      }
+      &__buy-user-text {
+        @include border-line;
+        &__info-text {
+          @include inner;
+          color: #888;
+          line-height: 1.5;
+          padding-bottom: 24px;
+          
+          &__btn {
+            @include inner;
+            width: 100%;
+            height: 50px;
+            background: #696969;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            display: block;
+            line-height: 48px;
+          }
+        }
+      }
+    }
+  }
+}
