@@ -1,0 +1,241 @@
+@mixin he_wi($height,$width){
+  height: $height;
+  width: $width;
+}
+@mixin select_box{
+  padding: 0 56px 0 16px;
+  -webkit-appearance: none;
+  margin: 16px 0 25px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+@mixin border_box{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.sell{
+  background-color: whitesmoke;
+  @include he_wi(100%,100vw);
+  &__header{
+    background-color: whitesmoke;
+    height: 130px;
+    text-align: center;
+    line-height: 160px;
+    position: relative;
+    img{
+      @include he_wi(50px,190px);
+    }
+  }
+  &__content{
+    background-color: black;
+    height: calc(100% - 260px);
+    width: 700px;
+    margin: 0 auto;
+    &__box{
+      &__image{
+        @include he_wi(220px,620px);
+        padding: 40px;
+        border-bottom: solid 1px rgb(236, 233, 233);
+        background-color: white;
+        &__frame{
+          &__comment{
+            font-size: 14px;
+            margin-top: 16px;
+          }
+          &__box{
+            @include he_wi(150px,620px);
+            background-color: rgb(245, 245, 245);
+            border: 1px dashed rgb(204, 204, 204);
+            margin-top: 16px;
+            &__label{
+              color: black;
+              &__btn{
+                @include he_wi(150px,620px);
+                display: flex;
+                cursor: pointer;
+                justify-content: center;
+                position: relative;
+                &__comment{
+                  line-height: 150px;
+                }
+              }
+              input{
+                display: none;
+                }
+              img{
+                @include he_wi(24px,24px);
+                filter: invert(100%); 
+                position: absolute;
+                top: 40px;
+              }
+              p{
+                font-size: 12px;
+                line-height: 150px;
+              }
+            }
+          }
+        }
+      }
+      &__product{
+        @include he_wi(336px,620px);
+        padding: 40px;
+        border-bottom: solid 1px rgb(236, 233, 233);
+        background-color: white;
+        &__frame__input__text{
+          @include he_wi(48px,584px);
+          padding: 0 16px;
+          margin: 16px 0 25px 0;
+          @include border_box
+        }
+        &__frame2__text__area{
+          @include he_wi(128px,588px);
+          padding: 13px 16px;
+          margin-top: 16px;
+          @include border_box
+        }
+      }
+      &__the-details{
+        @include he_wi(364px,620px);
+        padding: 40px;
+        border-bottom: solid 1px rgb(236, 233, 233);
+        background-color: white;
+        &__title{
+          margin-bottom: 25px;
+          font-size: 14px;
+          color: rgb(136, 136, 136);
+        }
+        &__category__select__box{
+          @include he_wi(48px,620px);
+          @include select_box
+        }
+        &__brand__select__box{
+          @include he_wi(46px,586px);
+          margin: 16px 0 25px 0;
+          padding: 0 16px;
+          @include border_box
+        }
+        &__status__select__box{
+          @include he_wi(48px,620px);
+          @include select_box
+        }
+      }
+      &__delivery{
+        @include he_wi(365px,620px);
+        padding: 40px;
+        border-bottom: solid 1px rgb(236, 233, 233);
+        background-color: white;
+        &__title{
+          margin-bottom: 25px;
+          font-size: 14px;
+          color: rgb(136, 136, 136);
+        }
+        &__burden__select__box{
+          @include he_wi(48px,620px);
+          @include select_box
+        }
+        &__area__select__box{
+          @include he_wi(48px,620px);
+          @include select_box
+        }
+        &__days__select__box{
+          @include he_wi(48px,620px);
+          @include select_box
+        }
+      }
+      &__selling-price{
+        @include he_wi(230px,620px);
+        padding: 40px;
+        background-color: white;
+        &__name{
+          margin-bottom: 25px;
+          font-size: 14px;
+          font-weight: bold;
+          color: rgb(136, 136, 136);
+        }
+        &__price__name{
+          height: 46px;
+          &__input{
+            text-align: right;
+            input{
+              @include he_wi(46px,250px);
+              text-align: right;
+              padding: 0 16px;
+              @include border_box
+            }
+          }
+        }
+        &__price__fee{
+          font-size: 14px;
+          margin-top: 20px;
+          border-bottom: solid 1px rgb(236, 233, 233);
+          height: 46px;
+        }
+        &__price__profit{
+          font-size: 14px;
+          margin-top: 20px;
+          height: 46px;
+        }
+      }
+      &__sales-profit{
+        @include he_wi(100%,620px);
+        padding: 0 40px;
+        background-color: white;
+        &__btn{
+          margin: 0 170px;
+        }
+        .submit-btn{
+          @include he_wi(46px,310px);
+          background-color: #ea352d;
+          color: #fff;
+          font-size: 17px;
+          border-radius: 4px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .btn{
+          display: flex;
+          justify-content: center;
+          margin-top: 24px;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        &__text{
+          font-size: 12px;
+          padding: 32px 0 50px 0;
+        }
+      }
+    }
+  }
+}
+a{
+  color: #0095ee;
+  text-decoration: none;
+}
+
+.titel{
+  font-size: 14px;
+  font-weight: bold;
+}
+.required{
+  margin-left: 8px;
+  background-color: #ff0211;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: 1.4em;
+  display: inline-block;
+  border-radius: 2px;
+}
+.any{
+  margin-left: 8px;
+  background-color: #bfbfbf;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: 1.4em;
+  display: inline-block;
+  border-radius: 2px;
+}
