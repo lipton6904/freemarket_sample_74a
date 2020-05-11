@@ -1,7 +1,29 @@
-= render "header"
-.main
-  = render "main"
-  = render "app-banner"
-= render "footer"
-= render "show"
-= render "confirmation"
+.content
+  %header.header
+    %h1
+      = link_to "#" do
+        = image_tag asset_path("material/logo/logo.png")
+    .content-bar
+      %ol.small-content-bar
+        %li.list-1
+          会員情報
+            .bar-box
+              %hr.line
+        %li.list-1
+          電話番号認証
+            .bar-box
+              %hr.line
+        %li.list-1
+          完了
+            .bar-box
+              %hr.line
+  %div.content
+    .main-content
+      %h2.content-head
+        会員情報入力
+      %form.content-form
+        .content-box
+          
+        .content-box
+
+  %footer
