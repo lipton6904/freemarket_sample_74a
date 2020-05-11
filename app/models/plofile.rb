@@ -1,0 +1,2 @@
+class Plofile < ApplicationRecord
+end
