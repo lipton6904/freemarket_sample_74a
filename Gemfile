@@ -77,4 +77,5 @@ gem 'erb2haml'
 gem "font-awesome-sass"
 gem 'active_hash'
 gem 'devise'
-
+gem 'carrierwave'
+gem 'mini_magick'
