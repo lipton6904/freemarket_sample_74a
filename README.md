@@ -1,5 +1,5 @@
 
-## user
+## users
 |Column|Type|Options|
 |------|----|-------|
 |nickname |string | null: false|
@@ -7,9 +7,9 @@
 |last_name |string | null: false|
 |first_name_kana |string | null: false|
 |last_name_kana |string | null: false|
-|birth_year |data | null: false|
-|birth_month |data | null: false|
-|birth_day |data | null: false|
+|birth_year |date | null: false|
+|birth_month |date | null: false|
+|birth_day |date | null: false|
 |email|string|null: false|
 |password|string|null: false|
 ##Association
@@ -44,7 +44,7 @@
 |------|----|-------|
 |name|string|null: false|
 |price|integer|null: false|
-|explanation|text|nul: false|
+|explanation|text|null: false|
 |category|references|null: false|foreign_key: true|
 |size|references|null: false|foreign_key: true|
 |brand|references|foreign_key: true|
@@ -52,7 +52,7 @@
 |derivery_fee_id|references|null: false|foreign_key: true|
 |shipping_area_id |string | null: false|
 |days_untill_shipping_id|references|null: false|foreign_key: true|
-|status _id|enum|null: false|
+|status_id|enum|null: false|
 ##Association
 -belongs_to :category
 -has_many :images
@@ -66,7 +66,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item|reference|null: false|index: true|foreign_key: true|
+|item_id|references|null: false|index: true|foreign_key: true|
 ##Association
 -belongs_to :item
 

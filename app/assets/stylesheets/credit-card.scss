@@ -1,0 +1,95 @@
+.credit-main {
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  &__product-continer {
+    &__title {
+      @include border-line;
+      padding: 12px 4%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    &__inner {
+      @include inner;
+      padding-top: 20px;
+      &__head-line {
+        font-weight: bold;
+        font-size: 13px;
+        padding: 5px 0;
+        &__card-number {
+        }
+      }
+      &__text-box {
+        width: 340px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      &__credit-icon-box {
+        list-style: none;
+        display: flex;
+        &__icon {
+          padding-right: 5px;
+          padding-top: 5px;
+        }
+      }
+      &__select {
+        display: flex;
+        &__box {
+          padding: 0 56px 0 16px;
+          -webkit-appearance: none;
+          margin: 16px 0 25px 0;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          background-color: #fff;
+          height: 48px;
+        }
+        &__icon {
+          margin: 28px 6px 0 -20px;
+          top: 3px;
+          pointer-events: none;
+          color: #808080;
+        }
+      }
+      &__question {
+        padding-top: 5px;
+        text-align: right;
+        color: #0099e8;
+        font-size: 12px;
+      }
+      &__btn {
+        @include inner;
+        width: 100%;
+        height: 50px;
+        background: #3CCACE;
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+        display: block;
+        line-height: 48px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+.credit-day {
+  padding-left: 5px;
+  color: #808080;
+
+}
+
+.required{
+  margin-left: 8px;
+  background-color: #ff0211;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: 1.4em;
+  display: inline-block;
+  border-radius: 2px;
+}
