@@ -1,0 +1,78 @@
+= render "header"
+.credit-main
+  .credit-main__product-continer
+    %h2.credit-main__product-continer__title
+      クレジットカード情報入力
+    -# .credit-main__product-continer
+      form_withを使用する
+    .credit-main__product-continer__inner
+      %ul.credit-main__product-continer__inner__head-line
+        %li.credit-main__product-continer__inner__head-line__card-number
+          カード番号
+          %span.required
+            必須
+      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "半角数字のみ"}
+      %ul.credit-main__product-continer__inner__credit-icon-box
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_visa.png'), size: '45x28'
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_master.png'), size: '45x28'
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_saison.png'), size: '45x28'
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_jcb.png'), size: '45x28'
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_american.png'), size: '45x28'
+        %li.credit-main__product-continer__inner__credit-icon-box__icon
+          = image_tag asset_path('credit-icon/credit-card_diners.png'), size: '45x28'
+      %ul.credit-main__product-continer__inner__head-line
+        %li.credit-main__product-continer__inner__head-line__card-number
+          有効期限
+          %span.required
+            必須
+      .credit-main__product-continer__inner__select
+        %select.credit-main__product-continer__inner__select__box
+          %option 01
+          %option{value: "0"} 02
+          %option{value: "1"} 03
+          %option{value: "2"} 04
+          %option{value: "3"} 05
+          %option{value: "4"} 06
+          %option{value: "5"} 07
+          %option{value: "6"} 08
+          %option{value: "7"} 09
+          %option{value: "8"} 10
+          %option{value: "9"} 11
+          %option{value: "10"} 12
+        .credit-main__product-continer__inner__select__icon
+          = icon("fas", "chevron-down")
+          %span.credit-day
+            月
+        %select.credit-main__product-continer__inner__select__box
+          %option 20
+          %option{value: "0"} 21
+          %option{value: "1"} 22
+          %option{value: "2"} 23
+          %option{value: "3"} 24
+          %option{value: "4"} 25
+          %option{value: "5"} 26
+          %option{value: "6"} 27
+          %option{value: "7"} 28
+          %option{value: "8"} 29
+          %option{value: "9"} 30
+        .credit-main__product-continer__inner__select__icon
+          = icon("fas", "chevron-down")
+          %span.credit-day
+            年
+      %ul.credit-main__product-continer__inner__head-line
+        %li.credit-main__product-continer__inner__head-line__card-number
+          セキュリテイコード
+          %span.required
+            必須
+      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "カード背面４桁もしくは３桁の番号"}
+      .credit-main__product-continer__inner__question
+        ?カード裏面の番号とは？
+      .credit-main__product-continer__inner__btn
+        追加する
+= render "exisibition"
+= render "footer"
