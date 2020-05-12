@@ -1,2 +1,0 @@
-class Plofile < ApplicationRecord
-end
