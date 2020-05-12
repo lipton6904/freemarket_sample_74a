@@ -76,5 +76,10 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-sass"
 gem 'active_hash'
+<<<<<<< Updated upstream
 gem 'carrierwave'
 gem 'mini_magick'
+=======
+gem 'devise'
+
+>>>>>>> Stashed changes
