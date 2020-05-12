@@ -75,3 +75,5 @@ end
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'active_hash'
+gem "font-awesome-sass"
+
