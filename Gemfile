@@ -73,4 +73,4 @@ group :production do
 end
 
 gem 'haml-rails'
-gem 'active_hash'
+
