@@ -2,7 +2,8 @@
   .header__header-inner
     .header__header-inner__main-header
       %h1.header__header-inner__main-header__icon
-        = image_tag 'material/logo/logo.png', size: '140x40'
+        = link_to root_path do
+          = image_tag 'material/logo/logo.png', size: '140x40'
       .header__header-inner__main-header__search-box
         .header__header-inner__main-header__search-box__text
           %input.header__header-inner__main-header__search-box__text__input{type: "text", placeholder: "キーワードから探す"}
@@ -19,4 +20,5 @@
         %li.header__header-inner__category__right-box__left-item
           = link_to "ログイン"
         %li.header__header-inner__category__right-box__right-item
-          = link_to "新規会員登録"
+          = link_to "#" do
+            新規会員登録
