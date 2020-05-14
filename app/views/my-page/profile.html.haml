@@ -3,13 +3,18 @@
     = render 'my-page/my-page-header'
   .main-content
     .right-content
-      .name-box
-        = link_to "#" do
-          %h2.bold
-            太郎
+      .right-content-profile
+        %h2.right-content-profile__head
+          プロフィール
+        .right-content-profile-top-box
+          %input.right-content-profile-top-box__name{type:"text", value:"太郎"}
+        .right-content-profile-bottom-box
+          %textarea.right-content-profile-bottom-box__text{placeholder:"例）　こんにちは☆ご覧いただいありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          %button.right-content-profile-bottom-box__btn{type:"submit"}
+            変更する
     .left-content
       .my-page-bar
-        %ul.my-page-bar-list 
+        %ul.my-page-bar-list
           %li
             = link_to "#" do
               マイページ
@@ -23,8 +28,8 @@
           設定
         %ul.my-page-bar-list
           %li
-            = link_to profile_my-page_path  do
-              プロフィール
+            = link_to profile_my-page_path do
+              プロフィール  
           %li
             = link_to "#" do
               発送元・お届け先住所変更
