@@ -1,38 +1,48 @@
 .content
-  .right-content
-    .name-box
-  .left-content
-    .my-page-bar
-      %ul.my-page-bar-list 
-        %li
-          = link_to "#" 
-            出品する
-        %li
-          = link_to "#"
-            お問い合わせ
-      %h3.my-page-bar-head
-        設定
-      %ul.my-page-bar-list
-        %li
-          = link_to "#"
-            プロフィール
-        %li
-          = link_to "#"
-            発送元・お届け先住所変更
-        %li
-          = link_to "new_credit_card_path" do
-            支払い方法
-        %li
-          = link_to "#"
-            メール/パスワード
-        %li
-          = link_to "#"
-            本人情報
-        %li
-          = link_to "#"
-            電話番号の確認
-        %li
-          = link_to "#"
-            ログアウト
+  %header
+    = render 'my-page/my-page-header'
+  .main-content
+    .right-content
+      .name-box
+        = link_to "#" do
+          %h2.bold
+            太郎
+    .left-content
+      .my-page-bar
+        %ul.my-page-bar-list 
+          %li
+            = link_to "#" do
+              マイページ
+          %li
+            = link_to "#" do
+              出品する
+          %li
+            = link_to "#" do
+              お問い合わせ
+        %h3.my-page-bar-head
+          設定
+        %ul.my-page-bar-list
+          %li
+            = link_to "#" do
+              プロフィール
+          %li
+            = link_to "#" do
+              発送元・お届け先住所変更
+          %li
+            = link_to new_credit_card_path do
+              支払い方法
+          %li
+            = link_to "#" do
+              メール/パスワード
+          %li
+            = link_to "#" do
+              本人情報 
+          %li
+            = link_to "#" do
+              電話番号の確認
+          %li
+            = link_to "#" do
+              ログアウト
 
-= render "footer"
+  
+= render 'items/footer'
