@@ -1,0 +1,112 @@
+.header-signup{
+  text-align: center;
+}
+.user {
+  background-color: white;
+  width: 700px;
+  margin: auto;
+  padding-bottom: 100px;
+  &--post h2 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 40px 0;
+    border-bottom: thin solid #EEEEEE;
+  }
+  .boxes {
+    height: 100px;
+    &__field {
+      width: 400px;
+      margin-top: 40px;
+      margin-left: 200px;
+      label {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 15px;
+        margin: 0 5px 5px 0;
+      }
+      span {
+        display: inline-block;
+        background-color: red;
+        color: white;
+        vertical-align: top;
+        padding: 2px 2px;
+        font-size: 12px;
+        border-radius: 3px;
+      }
+      &__large-frame {
+        width: 300px;
+        height: 40px;
+        padding-left: 5px;
+        border: 1px solid #3CCACE;
+      }
+      h3 {
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      &__middle-frame {
+        width: 150px;
+        height: 40px;
+        padding-left: 5px;
+        border: 1px solid #3CCACE;
+      }
+      #profile_prefecture_id {
+        background-color: #fff;
+        width: 300px;
+        height: 40px;
+        padding-left: 5px;
+        border: 1px solid #3CCACE;
+      }
+      .year{
+        width: 80px;
+        height: 45px;
+        background-color: #fff;
+        border: 1px solid #3CCACE;
+      }
+      .month{
+        width: 80px;
+        height: 45px;
+        background-color: #fff;
+        border: 1px solid #3CCACE;
+      }
+      .day{
+        width: 80px;
+        height: 45px;
+        background-color: #fff;
+        border: 1px solid #3CCACE;
+      }
+    }
+  }
+  .action {
+    margin: auto;
+    text-align: center;
+    width: 300px;
+    margin-top: 80px;
+  }
+  .actions {
+    text-align: center;
+    width: 300px;
+    margin-top: 80px;
+    &__btn {
+      display: block;
+      width: 300px;
+      line-height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background-color: red;
+    }
+  }
+}
+.footer-purchase  {
+  background-color: #EEEEEE;
+  // height: 100px;
+  .footer-note{
+  text-align: center;
+  }
+  .footer-logo{
+  margin: 0 auto;
+  }
+}
+  
