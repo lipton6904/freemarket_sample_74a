@@ -3,10 +3,11 @@
     = render 'my-page/my-page-header'
   .main-content
     .right-content
-      .name-box
-        = link_to "#" do
-          %h2.bold
-            太郎
+      .right-content-container
+        .right-content-container-form
+          .right-content-container-form-small
+            %button.right-content-container-form-small__btn{type:"submit"}
+              ログアウト
     .left-content
       .my-page-bar
         %ul.my-page-bar-list 
