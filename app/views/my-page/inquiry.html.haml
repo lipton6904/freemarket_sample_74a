@@ -1,0 +1,79 @@
+.content
+  %header
+    = render 'my-page/my-page-header'
+  .main-content
+    .right-content
+      .right-content__container
+        %h2.right-content__container__head お問い合わせ項目を選ぶ
+        %ul.right-content__container__ul
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              会員登録・ログインについて
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              購入・支払いについて
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              発送・受取・評価について
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              売上の振込申請について
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              トラブルがあった
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              機能要望
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              不具合の報告
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              退会したい
+          %li.right-content__container__ul__li
+            = link_to "#" do
+              その他
+    .left-content
+      .my-page-bar
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              マイページ
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              出品する
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              お問い合わせ
+        %h3.my-page-bar__head
+          設定
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              プロフィール
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              発送元・お届け先住所変更
+          %li.my-page-bar__ul__list
+            = link_to new_credit_card_path do
+              支払い方法
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              メール/パスワード
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              本人情報 
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              電話番号の確認
+          %li.my-page-bar__ul__list
+            = link_to "#" do
+              ログアウト
+
+  
+= render 'items/footer'
+
+
+
+
+
