@@ -34,7 +34,6 @@
     margin: 0 auto;
     &__box{
       &__image{
-        @include he_wi(220px,620px);
         padding: 40px;
         border-bottom: solid 1px rgb(236, 233, 233);
         background-color: white;
@@ -78,25 +77,23 @@
         }
       }
       &__product{
-        @include he_wi(336px,620px);
         padding: 40px;
         border-bottom: solid 1px rgb(236, 233, 233);
         background-color: white;
         &__frame__input__text{
-          @include he_wi(48px,584px);
+          @include he_wi(48px,620px);
           padding: 0 16px;
           margin: 16px 0 25px 0;
           @include border_box
         }
         &__frame2__text__area{
-          @include he_wi(128px,588px);
+          @include he_wi(150px,620px);
           padding: 13px 16px;
           margin-top: 16px;
           @include border_box
         }
       }
       &__the-details{
-        @include he_wi(364px,620px);
         padding: 40px;
         border-bottom: solid 1px rgb(236, 233, 233);
         background-color: white;
@@ -110,7 +107,7 @@
           @include select_box
         }
         &__brand__select__box{
-          @include he_wi(46px,586px);
+          @include he_wi(46px,620px);
           margin: 16px 0 25px 0;
           padding: 0 16px;
           @include border_box
@@ -121,7 +118,6 @@
         }
       }
       &__delivery{
-        @include he_wi(365px,620px);
         padding: 40px;
         border-bottom: solid 1px rgb(236, 233, 233);
         background-color: white;
@@ -144,7 +140,6 @@
         }
       }
       &__selling-price{
-        @include he_wi(230px,620px);
         padding: 40px;
         background-color: white;
         &__name{
@@ -178,7 +173,6 @@
         }
       }
       &__sales-profit{
-        @include he_wi(100%,620px);
         padding: 0 40px;
         background-color: white;
         &__btn{
@@ -193,7 +187,7 @@
           font-weight: 600;
           cursor: pointer;
         }
-        .btn{
+        .sell_btn{
           display: flex;
           justify-content: center;
           margin-top: 24px;
@@ -208,7 +202,7 @@
     }
   }
 }
-a{
+.sell_link{
   color: #0095ee;
   text-decoration: none;
 }
