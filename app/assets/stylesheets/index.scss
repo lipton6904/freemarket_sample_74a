@@ -8,31 +8,25 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
 @mixin back-ground {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
 }
-
 @mixin t-shadow {
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
-
 @mixin display {
   display: flex;
   align-items: center;
 }
-
 span {
   color: #3CCACE;
 }
-
 .main__top-introduction__list-box__list__pict img {
   width: 100%;
   vertical-align: bottom;
 }
-
 .main {
   background: #f8f8f8;
   &__main-visual {
@@ -258,7 +252,6 @@ span {
       }
     }
   }
-
   &__app-banner {
     @include back-ground;
     background-image: image-url('material/pict/bg-appBanner-pict.jpg');
@@ -279,7 +272,6 @@ span {
       }
     }
   }
-
   &__exisibition {
     background: #3CCACE;
     position: fixed;
