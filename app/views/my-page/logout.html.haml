@@ -3,45 +3,45 @@
     = render 'my-page/my-page-header'
   .main-content
     .right-content
-      .right-content-container
-        .right-content-container-form
-          .right-content-container-form-small
-            %button.right-content-container-form-small__btn{type:"submit"}
+      .right-content__container
+        .right-content__container__form
+          .right-content__container__form__small
+            %button.right-content__container__form__small__btn{type:"submit"}
               ログアウト
     .left-content
       .my-page-bar
-        %ul.my-page-bar-list 
-          %li
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
             = link_to "#" do
               マイページ
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               出品する
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               お問い合わせ
-        %h3.my-page-bar-head
+        %h3.my-page-bar__head
           設定
-        %ul.my-page-bar-list
-          %li
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
             = link_to "#" do
               プロフィール
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               発送元・お届け先住所変更
-          %li
+          %li.my-page-bar__ul__list
             = link_to new_credit_card_path do
               支払い方法
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               メール/パスワード
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               本人情報 
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               電話番号の確認
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               ログアウト
 
