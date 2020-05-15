@@ -10,7 +10,7 @@
     background-color: #eeeeee;
     float: right;
     width: 700px;
-    .right-content-profile{
+    &__profile{
       &__head{
         font-size: 24px;
         padding: 8px 24px;
@@ -18,67 +18,69 @@
         text-align: center;
         line-height: 1.4;
       }    
-    }
-    .right-content-profile-top-box{
-      padding: 72px 16px 24px;
-      text-align: center;
-      &__name{
-        width: 220px;
-        height: 48px;
-        padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-      }
-    }
-    .right-content-profile-bottom-box{
-      padding: 40px 16px;
-      &__text{
-        min-height: 216px;
-        display: block;
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        background: #fff;
-        font-size: 16px;
-        line-height: 1.5;
-        }
-      &__btn{
-        margin: 16px 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        cursor: pointer;
-      }
-      }
-    }
-  
-  .left-content{
-    float: left;
-    width: 280px;
-    margin: 0 40px 0 0;
-    .my-page-bar-list{
-      li{
-        border-top: 1px solid #eee;
-        a{
-          position: relative;
-          display: block;
-          min-height: 48px;
-          padding: 16px;
+    
+      &__top-box{
+        padding: 72px 16px 24px;
+        text-align: center;
+        &__name{
+          width: 220px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
           background: #fff;
-          font-size: 14px;
-          color: #333;
+          line-height: 1.5;
+          font-size: 16px;
         }
       }
-    }
-    .my-page-bar-head{
-      margin: 40px 0 0;
+      &__bottom-box{
+        padding: 40px 16px;
+        &__text{
+          min-height: 216px;
+          display: block;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+          }
+        &__btn{
+          margin: 16px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
     }
   }
+    .left-content{
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+      .my-page-bar{
+        &__ul{
+          &__list{
+            border-top: 1px solid #eee;
+            a{
+              position: relative;
+              display: block;
+              min-height: 48px;
+              padding: 16px;
+              background: #fff;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+        }
+        &__head{
+          margin: 40px 0 0;
+        }
+      }
+    }
 }
