@@ -3,30 +3,30 @@
     = render 'my-page/my-page-header'
   .main-content
     .right-content
-      .right-content-container
-        %h2.right-content-container__head
+      .right-content__container
+        %h2.right-content__container__head
           発送元・お届け先住所変更
-        .right-content-container-box
-          .right-content-container-box-form
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　お名前
-              %span.right-content-container-box-form-group__span 必須
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）山田"}
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）太郎"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　お名前カナ
-              %span.right-content-container-box-form-group__span 必須
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）ヤマダ"}
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）タロウ"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　郵便番号
-              %span.right-content-container-box-form-group__span 必須
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）123-4567", maxlength:"8"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　都道府県
-              %span.right-content-container-box-form-group__span 必須
-              .right-content-container-box-form-group-select-wrap
-                %select.right-content-container-box-form-group-select-wrap__select-default
+        .right-content__container__box
+          .right-content__container__box__form
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　お名前
+              %span.right-content__container__box__form__group__span 必須
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）山田"}
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）太郎"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　お名前カナ
+              %span.right-content__container__box__form__group__span 必須
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）ヤマダ"}
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）タロウ"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　郵便番号
+              %span.right-content__container__box__form__group__span 必須
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）123-4567", maxlength:"8"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　都道府県
+              %span.right-content__container__box__form__group__span 必須
+              .right-content__container__box__form__group__select-wrap
+                %select.right-content__container__box__form__group__select-wrap__select-default
                   %option 選択してください
                   %option{:value => "0"} 北海道
                   %option{:value => "1"} 青森県
@@ -76,57 +76,57 @@
                   %option{:value => "45"} 鹿児島県
                   %option{:value => "46"} 沖縄県
                   %option{:value => "47"} 未定
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　市区町村
-              %span.right-content-container-box-form-group__span 必須
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）大阪府堺市"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　番地
-              %span.right-content-container-box-form-group__span 必須
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）渋谷1-1"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　建物名
-              %span.right-content-container-box-form-group__span-arbitrary 任意
-              %input.right-content-container-box-form-group__input{type:"text", placeholder:"例）さかいビル"}
-            .right-content-container-box-form-group
-              %label.right-content-container-box-form-group__label　電話番号
-              %span.right-content-container-box-form-group__span-arbitrary 任意
-              %input.right-content-container-box-form-group__input{type:"number", placeholder:"例）09012345678"}
-            %button.right-content-container-box-form__btn{type:"submit"} 変更する
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　市区町村
+              %span.right-content__container__box__form__group__span 必須
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）大阪府堺市"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　番地
+              %span.right-content__container__box__form__group__span 必須
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）渋谷1-1"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　建物名
+              %span.right-content__container__box__form__group__span-arbitrary 任意
+              %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）さかいビル"}
+            .right-content__container__box__form__group
+              %label.right-content__container__box__form__group__label　電話番号
+              %span.right-content__container__box__form__group__span-arbitrary 任意
+              %input.right-content__container__box__form__group__input{type:"number", placeholder:"例）09012345678"}
+            %button.right-content__container__box__form__btn{type:"submit"} 変更する
     .left-content
       .my-page-bar
-        %ul.my-page-bar-list 
-          %li
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
             = link_to "#" do
               マイページ
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               出品する
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               お問い合わせ
-        %h3.my-page-bar-head
+        %h3.my-page-bar__head
           設定
-        %ul.my-page-bar-list
-          %li
+        %ul.my-page-bar__ul
+          %li.my-page-bar__ul__list
             = link_to "#" do
               プロフィール
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               発送元・お届け先住所変更
-          %li
+          %li.my-page-bar__ul__list
             = link_to new_credit_card_path do
               支払い方法
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               メール/パスワード
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               本人情報 
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               電話番号の確認
-          %li
+          %li.my-page-bar__ul__list
             = link_to "#" do
               ログアウト
 
