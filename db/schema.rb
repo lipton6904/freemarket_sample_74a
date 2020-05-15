@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_041457) do
+
+ActiveRecord::Schema.define(version: 2020_05_15_082344) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancestry", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,15 +42,16 @@ ActiveRecord::Schema.define(version: 2020_05_15_041457) do
     t.string "name", null: false
     t.integer "price_id", null: false
     t.text "explanation", null: false
-    t.bigint "category_id", null: false
     t.integer "size_id", null: false
     t.integer "condition_id", null: false
     t.integer "derivery_fee_id", null: false
-    t.string "shipping_area", null: false
+    t.integer "shipping_area_id", null: false
     t.integer "days_untill_shipping_id", null: false
     t.integer "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,19 +84,15 @@ ActiveRecord::Schema.define(version: 2020_05_15_041457) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.date "birth_day", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string "email", null: false
+    t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "profiles", "users"
   add_foreign_key "user_products", "users", column: "buyer_id"
   add_foreign_key "user_products", "users", column: "seller_id"
