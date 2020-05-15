@@ -9,38 +9,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
-  def create_profile
+  def create
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @profile = @user.build_profile
+    render :new_profiles
+  end
+
+  def create_profiles
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
     unless @profile.valid?
       flash.now[:alert] = @profile.errors.full_messages
-      render :profiles and return
+      render :new_profiles and return
     end
     @user.build_profile(@profile.attributes)
     @user.save
     sign_in(:user, @user)
   end
 
-
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
 
   protected
 
@@ -49,11 +41,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_params
-    params.require(:profile).permit(:firstname, :firstname_kana,
-      :lastname, :lastname_kana,
-      :postal_code, :prefecture_id,
-      :city, :address, :building,
-      :tell, :birthday)
+    params.require(:profile).permit(:first_name, :first_name_kana,
+      :last_name, :last_name_kana,
+      :post_code, :prefecture_id,
+      :city, :house_number, :building,
+      :tell_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

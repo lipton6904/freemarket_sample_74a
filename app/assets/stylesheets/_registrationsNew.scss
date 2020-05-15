@@ -4,6 +4,7 @@
 .user {
   background-color: white;
   width: 700px;
+  height: 100%;
   margin: auto;
   padding-bottom: 100px;
   &--post h2 {
@@ -109,4 +110,9 @@
   margin: 0 auto;
   }
 }
-  
+
+
+.top{
+  height: 100vh;
+  margin-bottom: 500px;
+}

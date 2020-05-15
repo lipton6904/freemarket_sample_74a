@@ -18,7 +18,11 @@
           = link_to "ブランド"
       %ul.header__header-inner__category__right-box
         %li.header__header-inner__category__right-box__left-item
-          = link_to "ログイン"
-        %li.header__header-inner__category__right-box__right-item
-          = link_to new_signup_path do
+        - if user_signed_in?
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          -# = link_to 'マイページ', user_path(current_user)
+        - else
+          = link_to "ログイン", new_user_session_path
+  
+          = link_to new_user_registration_path do
             新規会員登録

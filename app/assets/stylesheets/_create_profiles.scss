@@ -1,0 +1,25 @@
+.registration {
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  width: 700px;
+  padding-bottom: 50px;
+  text-align: center;
+  .regisration__message{
+    padding: 50px 0;
+    font-size: 30px;
+    font-weight: bold;
+    // text-align: center;
+  }
+  .regisration__message__list{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    &__box{
+      padding-bottom: 30px;
+      &-link{
+        font-size: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
