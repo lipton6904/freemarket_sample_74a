@@ -18,11 +18,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     binding.pry
-    @item.save!
-    redirect_to root_path
-    # else
-    #   # render :index
-    # end
+    if  @item.save
+      render :index
+    else
+      render :index
+    end
   end
 
   def edit
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :price_id, :explanation, :category_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, :status_id,images_attributes: {image: []})
+    params.require(:item).permit(:name, :price_id, :explanation, :category_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, :status_id,images_attributes: [:image])
   end
 
 
