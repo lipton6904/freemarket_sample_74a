@@ -26,7 +26,6 @@
         = p.label :'都道府県'
         %span 必須
         %br/
-        -# = p.text_field :prefecture_id
         = p.collection_select :prefecture_id, Prefecture.all, :id, :name
       .boxes__field
         = p.label :'市区町村'
