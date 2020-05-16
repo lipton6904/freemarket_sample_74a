@@ -40,12 +40,12 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box", name: 'item[category_id][]'
-          .sell__content__box__the-details__brand
-            .sell__content__box__the-details__brand__name.titel
-              ブランド
-              %span.any 任意
-            .sell__content__box__the-details__brand__select
+              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box", category_id: 'category_id'
+          -# .sell__content__box__the-details__brand
+            -# .sell__content__box__the-details__brand__name.titel
+            -#   ブランド
+            -#   %span.any 任意
+            -# .sell__content__box__the-details__brand__select
               -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
           .sell__content__box__the-details__status
             .sell__content__box__the-details__status__name.titel
