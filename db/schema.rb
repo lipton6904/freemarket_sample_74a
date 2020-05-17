@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_082344) do
+ActiveRecord::Schema.define(version: 2020_05_17_081222) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,16 +37,25 @@ ActiveRecord::Schema.define(version: 2020_05_15_082344) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_item_categories_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price_id", null: false
     t.text "explanation", null: false
-    t.integer "size_id", null: false
+    t.integer "size_id"
     t.integer "condition_id", null: false
     t.integer "derivery_fee_id", null: false
     t.integer "shipping_area_id", null: false
     t.integer "days_untill_shipping_id", null: false
-    t.integer "status_id", null: false
+    t.integer "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
@@ -89,10 +98,15 @@ ActiveRecord::Schema.define(version: 2020_05_15_082344) do
     t.date "birth_year", null: false
     t.date "birth_month", null: false
     t.date "birth_day", null: false
-    t.string "email", null: false
-    t.string "password", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "credit_cards", "users"

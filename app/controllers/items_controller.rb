@@ -7,10 +7,6 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("ancestry,id").limit(13)
     @item = Item.new
     @item.images.new
-    # @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    # @item.images.new 
-    # @images = @item.images.new 
-    # @item.images.build
   end
   
   def show
@@ -19,11 +15,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save!
+    @item.save
     redirect_to root_path
-    # else
-    #   # render :index
-    # end
+
   end
 
   def edit
@@ -33,7 +27,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
+    redirect_to root_path
   end
+
   def get_category_children
     respond_to do |format| 
       format.html
@@ -51,10 +48,11 @@ class ItemsController < ApplicationController
     end
   end
 private
-
   def item_params
-    params.require(:item).permit(:name, :price_id, :explanation, :category_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, :status_id,images_attributes: {images_attributes: [:id, :image]})
+    params.require(:item).permit(:name, :price_id, :explanation, :category_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, :status_id, images_attributes: [:id, :image, :_destroy])
+    # .merge(user_id: current_user.id, status: 0)
   end
+
   def set_item
     @item = Item.find(params[:id])
   end

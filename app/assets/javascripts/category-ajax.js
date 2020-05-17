@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function(){
     categoryBox.append(childSelectHtml);
   }
   categoryBox.on("change", "#parent-category", function(){
-    var parentCategory = $("parent-category").value;
+    let parentCategory = $("parent-category").value;
     if(parentCategory !== "") {
       $.ajax ({
         url: '/items/get_category_children',
