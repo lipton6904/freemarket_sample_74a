@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
 
   def new
     @parents = Category.all.order("ancestry,id").limit(13)
+    # @category_parent_array = ["選択してください"] 
+    # @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    # @category_parent_array = ["---"]
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
     @item = Item.new
     @item.images.new
   end
@@ -32,20 +37,21 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    respond_to do |format| 
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+    binding.pry
+    # respond_to do |format| 
+    #   format.html
+    #   format.json do
+    @children = Category.find(params[:parent_id]).children
+    #   end
+    # end
   end
   def get_category_grandchildren
-    respond_to do |format| 
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+    # respond_to do |format| 
+    #   format.html
+    #   format.json do
+    @grandchildren = Category.find("#{params[:child_id]}").children
+    #   end
+    # end
   end
 private
   def item_params
@@ -57,10 +63,10 @@ private
     @item = Item.find(params[:id])
   end
 
-  # def set_categor
-  # @smallcategory =Category.find(Category.find(@items.category_id).
+  # def set_category
+  # @children =Category.find(Category.find(@items.category_id).
   # @category = Category.find(Category.find(@items.category_id). 
-  # @bigcategory = Category.find(Category.find(@items.category_id)
+  # @grandchildren = Category.find(Category.find(@items.category_id)
   # end
 
 end

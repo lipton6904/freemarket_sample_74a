@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :images,inverse_of: :item
   has_many :item_categories, dependent: :destroy
-  has_many :categories, through: :item_categories
+  belongs_to :categorie
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :size

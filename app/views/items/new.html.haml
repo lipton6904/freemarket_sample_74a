@@ -48,7 +48,7 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box", category_id: 'category_id'
+              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"},id: "parent-category", class: "sell__content__box__the-details__category__select__box", category_id: 'category_id'
           -# .sell__content__box__the-details__brand
             -# .sell__content__box__the-details__brand__name.titel
             -#   ブランド

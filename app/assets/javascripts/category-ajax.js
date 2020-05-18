@@ -1,18 +1,20 @@
 $(document).on('turbolinks:load', function(){
-  let categoryBox = $('.sell__content__box__the-details__category__select__box')
+  let categoryBox = $('.sell__content__box__the-details__category')
   function appendOption(category) {
     let html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`
   }
 
   function appendChildBox(insertHTML) {
     let childSelectHtml = '';
-    childSelectHtml = `<select class="sell__content__box__the-details__category__select__box" category_id="category_id" name="item[category_id]" id="item_category_id">
+    childSelectHtml = `<select class="sell__content__box__the-details__category__select__box">
                         ${insertHTML}
                         </select>`
     categoryBox.append(childSelectHtml);
   }
   categoryBox.on("change", "#parent-category", function(){
+    console.log(this)
     let parentCategory = $("parent-category").value;
+    console.log(parentCategory)
     if(parentCategory !== "") {
       $.ajax ({
         url: '/items/get_category_children',
@@ -23,6 +25,7 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json'
       })
       .done(function(children){
+        console.log(children)
         $('#child-category').remove();
         $('#grandchild-category').remove();
         var insertHTML = '';
