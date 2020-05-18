@@ -43,7 +43,7 @@
             margin-top: 16px;
           }
           &__box{
-            @include he_wi(150px,620px);
+            @include he_wi(100%,100%);
             background-color: rgb(245, 245, 245);
             border: 1px dashed rgb(204, 204, 204);
             margin-top: 16px;
@@ -59,10 +59,10 @@
                   line-height: 150px;
                 }
               }
-              input{
-                display: none;
-                }
-              img{
+              // input{
+              //   display: none;
+              //   }
+              .camera{
                 @include he_wi(24px,24px);
                 filter: invert(100%); 
                 position: absolute;
@@ -232,4 +232,9 @@
   line-height: 1.4em;
   display: inline-block;
   border-radius: 2px;
+}
+.js-remove{
+  width: 123px;
+  text-align: center;
+  background-color: white;
 }

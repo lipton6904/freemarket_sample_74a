@@ -1,0 +1,104 @@
+
+.header {
+  height: 150px;
+  text-align: center;
+  .logo {
+    margin-top: 25px;
+  }
+}
+.contents {
+  background-color: #fff;
+  width: 480px;
+  height: 100vh;
+  margin: auto;
+  &__row {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: thin solid #EEEEEE;
+    align-items: center;
+    p {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    &--btn {
+      display: inline-block;
+      width: 340px;
+      font-size: 14px;
+      font-weight: lighter;
+      color: #fff;
+      background-color: #0099e8;
+      padding: 8px 0;
+      text-decoration: none;
+    }
+  }
+  .login-form {
+    padding: 30px 0;
+    height: 100px;
+    .field {
+      margin: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      &__box {
+        width: 340px;
+        padding: 8px 0;
+        position: relative;
+        &__icon-size {
+          display: inline-block;
+          line-height: 23px;
+          font-size: 30px;
+          position: absolute;
+          left: 20px;
+        }
+        &__icon-color {
+          display: inline-block;
+          background: linear-gradient(110deg, #ea4335 20%, #fbbc05 40%, #34a583, #4285F4);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: rgba(255,255,255,0.0);
+          font-size: 19px;
+          line-height: 23px;
+          vertical-align: bottom;
+          position: absolute;
+          left: 20px;
+        }
+      }
+      #f-link {
+        display: inline-block;
+        border: 1px solid #385185;
+        font-size: 14px;
+        color: #fff;
+        background-color: #385185;
+        text-decoration: none;
+      }
+      #g-link {
+        display: inline-block;
+        border: 1px solid;
+        font-size: 14px;
+        color: black;
+        text-decoration: none;
+      }
+      .actions {
+        text-align: center;
+        width: 340px;
+        margin: auto;
+        margin-top: 50px;
+        &__btn {
+          display: block;
+          width: 340px;
+          line-height: 50px;
+          font-size: 14px;
+          font-weight: lighter;
+          color: #fff;
+          background-color: red;
+        }
+        a {
+          display: inline-block;
+          margin-top: 40px;
+          margin-right: 80px;
+          color: #0099e8;
+          font-size: 17px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

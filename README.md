@@ -3,12 +3,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname |string | null: false|
-|first_name |string | null: false|
-|last_name |string | null: false|
-|first_name_kana |string | null: false|
-|last_name_kana |string | null: false|
-|birth_year |date | null: false|
-|birth_month |date | null: false|
 |birth_day |date | null: false|
 |email|string|null: false|
 |password|string|null: false|
@@ -28,7 +22,7 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |post_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building|string|null: true|
@@ -50,7 +44,7 @@
 |brand|references|foreign_key: true|
 |condition_id|references|null: false|foreign_key: true|
 |derivery_fee_id|references|null: false|foreign_key: true|
-|shipping_area_id |string | null: false|
+|shipping_area_id |integer| null: false|
 |days_untill_shipping_id|references|null: false|foreign_key: true|
 |status_id|enum|null: false|
 ##Association

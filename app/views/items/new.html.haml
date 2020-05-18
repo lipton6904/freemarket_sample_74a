@@ -15,10 +15,17 @@
               %label{class: "sell__content__box__image__frame__box__label"}
                 .sell__content__box__image__frame__box__label__btn
                   %p.sell__content__box__image__frame__box__label__btn__comment
-                  = image_tag 'material/icon/icon_camera.png'
+                  = image_tag 'material/icon/icon_camera.png' ,class:"camera"
                   %p ドラックアンドドロップまたはクリックしてファイルをアップロード
-                = f.fields_for :images do |i|
-                  = i.file_field :image
+                #image-box
+                  #previews
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        = image_tag image.src.url, data: { index: i }, width: "124", height: '124'
+                  = f.fields_for :images do |i|
+                    .data-index-#i.index.js-file_group
+                      = i.file_field :image, class: 'js-file'
+                      .js-remove 削除
         .sell__content__box__product
           .sell__content__box__product__frame
             .sell__content__box__product__frame__name.titel
@@ -40,12 +47,12 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box", name: 'item[category_id][]'
+              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box"
           .sell__content__box__the-details__brand
-            .sell__content__box__the-details__brand__name.titel
-              ブランド
-              %span.any 任意
-            .sell__content__box__the-details__brand__select
+            -# .sell__content__box__the-details__brand__name.titel
+            -#   ブランド
+            -#   %span.any 任意
+            -# .sell__content__box__the-details__brand__select
               -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
           .sell__content__box__the-details__status
             .sell__content__box__the-details__status__name.titel
