@@ -16,4 +16,3 @@ Rails.application.routes.draw do
     resources :buys, only: [:show]
     end
   end
-
