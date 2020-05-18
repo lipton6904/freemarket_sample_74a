@@ -1,6 +1,6 @@
 .content
   %header
-    = render 'my-page/my-page-header'
+    = render 'mypage/my-page-header'
   .main-content
     .right-content
       .right-content__mail-password
@@ -33,31 +33,31 @@
             = link_to "#" do
               出品する
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_inquiry_path do
               お問い合わせ
         %h3.my-page-bar__head
           設定
         %ul.my-page-bar__ul
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_profile_path do
               プロフィール
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_address_path do
               発送元・お届け先住所変更
           %li.my-page-bar__ul__list
             = link_to new_credit_card_path do
               支払い方法
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_mail_password_path do
               メール/パスワード
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_user_info_path do
               本人情報 
           %li.my-page-bar__ul__list
             = link_to "#" do
               電話番号の確認
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_logout_path do
               ログアウト
 
   
