@@ -6,14 +6,14 @@ $(document).on('turbolinks:load', function(){
 
   function appendChildBox(insertHTML) {
     let childSelectHtml = '';
-    childSelectHtml = `<select class="sell__content__box__the-details__category__select__box">
-                        ${insertHTML}
-                        </select>`
+    childSelectHtml = `<div class='form-select' id="child-category">
+                      ${insertHTML}
+                      </div>`
     categoryBox.append(childSelectHtml);
   }
   categoryBox.on("change", "#parent-category", function(){
     console.log(this)
-    let parentCategory = $("parent-category").value;
+    let parentCategory = $("#parent-category").val();
     console.log(parentCategory)
     if(parentCategory !== "") {
       $.ajax ({
