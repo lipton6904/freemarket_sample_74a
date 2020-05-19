@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :credit_cards, only:[:new]
+  resources :mypage, only:[:new]
+  resources :address, only:[:new]
+  resources :inquiry, only:[:new]
+  resources :logout, only:[:new]
+  resources :mail_password, only:[:new]
+  resources :profile, only:[:new]
+  resources :user_info, only:[:new]
 
   resources :items do
     resources :image
