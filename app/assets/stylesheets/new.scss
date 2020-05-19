@@ -49,8 +49,9 @@
             margin-top: 16px;
             &__label{
               color: black;
+              @include he_wi(100%,100%);
               &__btn{
-                @include he_wi(150px,620px);
+                @include he_wi(100%,100%);
                 display: flex;
                 cursor: pointer;
                 justify-content: center;
@@ -64,7 +65,7 @@
                 }
               img{
                 @include he_wi(24px,24px);
-                filter: invert(100%); 
+                filter: invert(100%);
                 position: absolute;
                 top: 40px;
               }
@@ -180,7 +181,7 @@
         }
         .submit-btn{
           @include he_wi(46px,310px);
-          background-color: #ea352d;
+          background-color: #EA352D;
           color: #fff;
           font-size: 17px;
           border-radius: 4px;
@@ -203,17 +204,16 @@
   }
 }
 .sell_link{
-  color: #0095ee;
+  color: #0095EE;
   text-decoration: none;
 }
-
 .titel{
   font-size: 14px;
   font-weight: bold;
 }
 .required{
   margin-left: 8px;
-  background-color: #ff0211;
+  background-color: #FF0211;
   color: #fff;
   font-weight: 600;
   font-size: 12px;
@@ -224,7 +224,7 @@
 }
 .any{
   margin-left: 8px;
-  background-color: #bfbfbf;
+  background-color: #BFBFBF;
   color: #fff;
   font-weight: 600;
   font-size: 12px;
@@ -232,4 +232,12 @@
   line-height: 1.4em;
   display: inline-block;
   border-radius: 2px;
+<<<<<<< Updated upstream
+=======
+}
+.item-image__operetion--delete{
+  width: 123px;
+  text-align: center;
+  background-color: white;
+>>>>>>> Stashed changes
 }

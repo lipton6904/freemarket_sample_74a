@@ -81,4 +81,9 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'devise'
 gem 'ancestry'
+<<<<<<< Updated upstream
 
+=======
+gem 'jquery-rails'
+gem 'payjp'
+>>>>>>> Stashed changes

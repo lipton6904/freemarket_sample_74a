@@ -17,8 +17,19 @@
                   %p.sell__content__box__image__frame__box__label__btn__comment
                   = image_tag 'material/icon/icon_camera.png'
                   %p ドラックアンドドロップまたはクリックしてファイルをアップロード
+<<<<<<< Updated upstream
                 = f.fields_for :images do |i|
                   = i.file_field :image
+=======
+                #image-box
+                  #previews
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        = image_tag image.src.url, data: { index: i }, width: "124", height: '124'
+                  = f.fields_for :images do |i|
+                    = i.file_field :image, class: 'js-file'
+                    .js-remove 削除
+>>>>>>> Stashed changes
         .sell__content__box__product
           .sell__content__box__product__frame
             .sell__content__box__product__frame__name.titel
