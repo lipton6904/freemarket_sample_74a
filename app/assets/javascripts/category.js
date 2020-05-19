@@ -1,9 +1,9 @@
 $(function(){
-  function appendOption(category){ // optionの作成
+  function appendOption(category){
     var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
-  function appendChildrenBox(insertHTML){ // 子セレクトボックスのhtml作成
+  function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
       childSelectHtml = `<div class='sell__content__box__the-details__category__select' id= 'children_wrapper'>
                         <select class="sell__content__box__the-details__category__select__box" id="child_category" name="item[category_id]">
@@ -13,7 +13,7 @@ $(function(){
                         </div>`;
     $('.sell__content__box__the-details__category__select').append(childSelectHtml);
   }
-  function appendgrandChildrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
+  function appendgrandChildrenBox(insertHTML){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='sell__content__box__the-details__category__select' id= 'grandchildren_wrapper'>
                               <select class="sell__content__box__the-details__category__select__box" id="grandchild_category" name="item[category_id]">
@@ -21,31 +21,26 @@ $(function(){
                               ${insertHTML}
                               </select>
                               </div>`;
-    $('.sell__content__box__the-details__category__select').append(grandchildrenSelectHtml);
+    $('#children_wrapper').after(grandchildrenSelectHtml)
   }
 
-
-
-  $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
+  $(document).on('change', '#category_select', function(){
     var productcategory = document.getElementById('category_select').value;
-  // ↑ productcategoryに選択した親のvalueを代入
-    if (productcategory !== ''){
- // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
+    if (productcategory != ''){
       $.ajax({
         url: '/items/category_children',
         type: 'GET',
         data: { productcategory: productcategory },
         dataType: 'json'
       })
-      .done(function(children){  // 送られてきたデータをchildrenに代入
+      .done(function(children){
         var insertHTML = '';
         children.forEach(function(child){  
-  // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
-          insertHTML += appendOption(child); 
+          insertHTML += appendOption(child);
+
         });
         appendChildrenBox(insertHTML); 
         $(document).on('change', '#category_select', function(){
-  // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
         })
@@ -56,11 +51,9 @@ $(function(){
     }
   });
 
-
-  // document､もしくは親を指定しないと発火しない
   $(document).on('change', '#child_category', function(){
     var productcategory = document.getElementById('child_category').value;
-    if (productcategory !== ''){
+    if (productcategory != ''){
     $.ajax ({
       url: '/items/category_grandchildren',
       type: 'GET',
@@ -72,14 +65,14 @@ $(function(){
       grandchildren.forEach(function(grandchild){
         insertHTML += appendOption(grandchild);
         });
-        appendgrandChildrenBox(insertHTML);  
+        appendgrandChildrenBox(insertHTML);
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
           })
         })  
-        .fail(function(){
-          alert('カテゴリー取得に失敗しました');
-        })
+    .fail(function(){
+      alert('カテゴリー取得に失敗しました');
+      })
     }
   });
 });
