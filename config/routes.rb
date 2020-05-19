@@ -4,12 +4,8 @@ Rails.application.routes.draw do
   resources :credit_cards, only:[:new]
   resources :items do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
-    end
-    member do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'category_children' 
+      get 'category_grandchildren'
     end
     resources :image
     resources :buys, only: [:show]

@@ -17,16 +17,16 @@
                   %p.sell__content__box__image__frame__box__label__btn__comment
                   = image_tag 'material/icon/icon_camera.png'
                   %p ドラックアンドドロップまたはクリックしてファイルをアップロード
-                  = f.fields_for :images do |i|
-                    .data-index-#image.index.js-file_group
-                      %span.js-remove 削除
-                      -#編集機能用フォーム
-                    -# - if @product.persisted?
-                    -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
-                    -# - if @product.persisted?
-                    -#   .js-file_group{"data-index" => "#{@product.images.count}"}
-                    -#     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                    -#     .js-remove 削除
+                = f.fields_for :images do |i|
+                  .data-index-#image.index.js-file_group
+                    %span.js-remove 削除
+                    -#編集機能用フォーム
+                  -# - if @product.persisted?
+                  -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
+                  -# - if @product.persisted?
+                  -#   .js-file_group{"data-index" => "#{@product.images.count}"}
+                  -#     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                  -#     .js-remove 削除
         .sell__content__box__product
           .sell__content__box__product__frame
             .sell__content__box__product__frame__name.titel
@@ -48,9 +48,7 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"},id: "parent-category", class: "sell__content__box__the-details__category__select__box", category_id: 'category_id'
-            .form-select#child-category
-              -# = f.collection_select :category_id, @child, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box", category_id: 'category_id'
+              = f.collection_select :category_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "sell__content__box__the-details__category__select__box"}
           -# .sell__content__box__the-details__brand
             -# .sell__content__box__the-details__brand__name.titel
             -#   ブランド
