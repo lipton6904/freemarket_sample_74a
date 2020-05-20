@@ -14,11 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_082344) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-<<<<<<< HEAD
     t.string "ancestry"
-=======
-    t.string "ancestry", null: false
->>>>>>> parent of 99a9c5d... Merge branch 'master' into link-funa
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,12 +41,12 @@ ActiveRecord::Schema.define(version: 2020_05_15_082344) do
     t.string "name", null: false
     t.integer "price_id", null: false
     t.text "explanation", null: false
-    t.integer "size_id", null: false
+    t.integer "size_id"
     t.integer "condition_id", null: false
     t.integer "derivery_fee_id", null: false
     t.integer "shipping_area_id", null: false
     t.integer "days_untill_shipping_id", null: false
-    t.integer "status_id", null: false
+    t.integer "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
