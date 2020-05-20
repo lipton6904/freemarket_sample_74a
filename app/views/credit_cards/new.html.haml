@@ -11,7 +11,7 @@
           カード番号
           %span.required
             必須
-      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "半角数字のみ"}
+      = text_field_tag "number", "", class: "input__default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
       %ul.credit-main__product-continer__inner__credit-icon-box
         %li.credit-main__product-continer__inner__credit-icon-box__icon
           = image_tag asset_path('credit-icon/credit-card_visa.png'), size: '45x28'
