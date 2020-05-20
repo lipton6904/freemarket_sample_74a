@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
-<<<<<<< Updated upstream
-=======
 
-  before_action :set_item, except: [:index, :new, :create]
   
->>>>>>> Stashed changes
   def index
   end
 
@@ -12,12 +8,6 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("ancestry,id").limit(13)
     @item = Item.new
     @item.images.new
-<<<<<<< Updated upstream
-    # @item.images.new 
-    # @images = @item.images.new 
-    # @item.images.build
-=======
->>>>>>> Stashed changes
   end
   
   def show
@@ -26,18 +16,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-<<<<<<< Updated upstream
-    @item.save!
-    redirect_to root_path
-    # else
-    #   # render :index
-    # end
-=======
     if  @item.save
     else
       redirect_to root_path
     end
->>>>>>> Stashed changes
   end
 
   def edit

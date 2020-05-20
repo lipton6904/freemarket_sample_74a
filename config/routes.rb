@@ -19,8 +19,13 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :image
-
-    resources :buys, only: [:show]
-    end
   end
+
+  resources :buys, only: [:show]
+  end
+
+  resources :credit_cards, only: [:new, :create] do
+  end
+
+end
 
