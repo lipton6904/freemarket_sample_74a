@@ -74,9 +74,8 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
-
-  .destroy-btn
-    -# - if user_signed_in? && current_user.id == @item.user_id
-    = link_to '削除', item_path(@item), method: :delete
+        .related-items__destroy-btn
+          -# - if user_signed_in? && current_user.id == @item.user_id
+          = link_to '出品の削除', item_path(@item), method: :delete
 
 -# = render "footer"
