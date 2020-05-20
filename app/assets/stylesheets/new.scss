@@ -40,39 +40,7 @@
         &__frame{
           &__comment{
             font-size: 14px;
-            margin-top: 16px;
-          }
-          &__box{
-            @include he_wi(100%,100%);
-            background-color: rgb(245, 245, 245);
-            border: 1px dashed rgb(204, 204, 204);
-            margin-top: 16px;
-            &__label{
-              color: black;
-              &__btn{
-                @include he_wi(150px,620px);
-                display: flex;
-                cursor: pointer;
-                justify-content: center;
-                position: relative;
-                &__comment{
-                  line-height: 150px;
-                }
-              }
-              // input{
-              //   display: none;
-              //   }
-              .camera{
-                @include he_wi(24px,24px);
-                filter: invert(100%); 
-                position: absolute;
-                top: 40px;
-              }
-              p{
-                font-size: 12px;
-                line-height: 150px;
-              }
-            }
+            margin: 16px 0;
           }
         }
       }
@@ -233,8 +201,58 @@
   display: inline-block;
   border-radius: 2px;
 }
-.js-remove{
-  width: 123px;
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 496px;
+}
+.item-num-2{
+  width: 372px;
+}
+.item-num-3{
+  width: 248px;
+}
+.item-num-4{
+  width: 124px;
+}
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 496px;
+}
+.item-num-7{
+  width: 372px;
+}
+.item-num-8{
+  width: 248px;
+}
+.item-num-9{
+  width: 124px;
+}
+.item-image__operetion--delete{
+  width: 122px;
+  height: 27px;
   text-align: center;
   background-color: white;
+}
+#image-box-1{
+  display: flex;
+  flex-wrap: wrap;
+}
+.input-area{
+  @include he_wi(100%,100%);
+  background-color: rgb(245, 245, 245);
+  border: 1px dashed rgb(204, 204, 204);
+  line-height: 155px;
+  text-align: center;
+}
+.item-image{
+  @include he_wi(157px,124px);
+  float: left;
+  border: 1px dashed rgb(204, 204, 204);
+}
+.fa-camera{
+  font-size: 40px;
 }
