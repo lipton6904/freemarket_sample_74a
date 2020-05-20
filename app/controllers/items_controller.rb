@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find(params[:id])
     @items = Item.includes(:images).order('created_at DESC')
   end
 
@@ -31,6 +32,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
   end
 
 private

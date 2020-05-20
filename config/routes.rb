@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :profile, only:[:new]
   resources :user_info, only:[:new]
 
-  resources :items do
+  resources :items, only:[:index, :new, :show, :destroy] do
     resources :image
 
     resources :buys, only: [:show]
