@@ -59,6 +59,9 @@
         color: #0099e8;
         font-size: 12px;
       }
+      .securitycode__cardsecurity__form{
+        padding-right: 150px;
+      }
       &__btn {
         @include inner;
         width: 100%;

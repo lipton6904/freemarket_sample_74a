@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function(){
   //id名が"payment_card_submit-button"というボタンが押されたら取得
   let submit = document.getElementById("payment_card_submit-button");
 
-  Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵の記述(ご自身の公開鍵コードを記述しよう！)
+  Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵
 
     submit.addEventListener('click', function(e){ //ボタンが押されたらトークン作成開始。
 
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('<input type="hidden" name="payjp_token">').val(response.id)
         ); //取得したトークンを送信できる状態にします
         document.inputForm.submit();
-        alert("登録が完了しました"); //正常処理完了確認用。createビューがあればつけなくてもOKかな
+        alert("登録が完了しました"); //正常処理完了確認用。
       } else {
         alert("カード情報が正しくありません。"); //エラー確認用
       }

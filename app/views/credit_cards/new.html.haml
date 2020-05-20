@@ -4,7 +4,7 @@
     %h2.credit-main__product-continer__title
       クレジットカード情報入力
     -# .credit-main__product-continer
-      form_withを使用する
+  = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do  
     .credit-main__product-continer__inner
       %ul.credit-main__product-continer__inner__head-line
         %li.credit-main__product-continer__inner__head-line__card-number
@@ -69,7 +69,7 @@
           セキュリテイコード
           %span.required
             必須
-      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "カード背面４桁もしくは３桁の番号"}
+      = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面3~4桁の番号'
       .credit-main__product-continer__inner__question
         ?カード裏面の番号とは？
       .credit-main__product-continer__inner__btn
