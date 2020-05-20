@@ -43,6 +43,8 @@ $(function(){
         $(document).on('change', '#category_select', function(){
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
+          $('#size-box').css('display', 'none');
+          $('#shoes-box').css('display', 'none');
         })
       })
       .fail(function(){
@@ -68,6 +70,8 @@ $(function(){
         appendgrandChildrenBox(insertHTML);
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
+          $('#size-box').css('display', 'none');
+          $('#shoes-box').css('display', 'none');
           })
         })  
     .fail(function(){
@@ -75,4 +79,19 @@ $(function(){
       })
     }
   });
+  $(document).on('change', '#grandchild_category', function() {
+    console.log(1)
+    let sizecategory = document.getElementById('child_category').value;
+    console.log(document.getElementById("child_category").value)
+    if (sizecategory == 7 || sizecategory == 205) {
+      $('#shoes-box').css('display', 'block');
+    } else if(sizecategory == 2 || sizecategory == 3 || sizecategory == 4 || sizecategory == 5 || sizecategory == 6 || sizecategory == 8 || sizecategory == 17 || sizecategory == 18 || sizecategory == 19
+            || sizecategory == 202 || sizecategory == 203 || sizecategory == 204 || sizecategory == 207 || sizecategory == 212 || sizecategory == 214) {
+      $('#size-box').css('display', 'block');
+    } else {
+      $('#size-box').css('display', 'none');
+      $('#shoes-box').css('display', 'none');
+    }
+  });
+
 });
