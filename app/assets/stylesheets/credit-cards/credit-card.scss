@@ -66,14 +66,19 @@
         background: #3CCACE;
         text-align: center;
         font-weight: bold;
-        color: #fff;
         display: block;
         line-height: 48px;
         margin-top: 20px;
+        .add__btn{
+        border-style: none;
+        background: #3CCACE;
+        }
       }
     }
   }
 }
+
+
 .credit-day {
   padding-left: 5px;
   color: #808080;

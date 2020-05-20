@@ -31,7 +31,7 @@
           %span.required
             必須
       .credit-main__product-continer__inner__select
-        %select.credit-main__product-continer__inner__select__box
+        %select#payment_card_month.credit-main__product-continer__inner__select__box{name: "payment_card_month", type: "text"}
           %option 01
           %option{value: "0"} 02
           %option{value: "1"} 03
@@ -48,7 +48,7 @@
           = icon("fas", "chevron-down")
           %span.credit-day
             月
-        %select.credit-main__product-continer__inner__select__box
+        %select#payment_card_year.credit-main__product-continer__inner__select__box{name: "payment_card_year", type: "text"}
           %option 20
           %option{value: "0"} 21
           %option{value: "1"} 22
@@ -73,6 +73,6 @@
       .credit-main__product-continer__inner__question
         ?カード裏面の番号とは？
       .credit-main__product-continer__inner__btn
-        追加する
+        = submit_tag "追加する", class: "add__btn", id: "payment_card_submit-button"
 = render "items/exisibition"
 = render "items/footer"
