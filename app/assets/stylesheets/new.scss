@@ -112,12 +112,6 @@
           padding: 0 16px;
           @include border_box
         }
-        &__size{
-          display: none;
-        }
-        &__shoes{
-          display: none;
-        }
         &__status__select__box{
           @include he_wi(48px,620px);
           @include select_box

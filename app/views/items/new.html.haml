@@ -49,18 +49,6 @@
               %span.required 必須
             .sell__content__box__the-details__category__select
               = f.collection_select :category_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "sell__content__box__the-details__category__select__box"}
-          .sell__content__box__the-details__size#size-box
-            .sell__content__box__the-details__size__name.titel
-              サイズ
-              %span.required 必須
-            .sell__content__box__the-details__size__select
-              = f.collection_select( :size_id, Size.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__the-details__status__select__box"})
-          .sell__content__box__the-details__shoes#shoes-box
-            .sell__content__box__the-details__shoes__name.titel
-              サイズ
-              %span.required 必須
-            .sell__content__box__the-details__shoes__select
-              = f.collection_select( :size_id, Shoes.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__the-details__status__select__box"})
           -# .sell__content__box__the-details__brand
             -# .sell__content__box__the-details__brand__name.titel
             -#   ブランド
