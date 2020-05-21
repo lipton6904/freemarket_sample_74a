@@ -139,6 +139,11 @@ $(function(){
         $(document).on('change', '#category_select', function(){
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
+          $('#size-box').remove();
+          $('#shoes-box').remove();
+          $('#kidsize-box').remove();
+          $('#kidbigsize-box').remove();
+          $('#kidshoes-box').remove();
         })
       })
       .fail(function(){
@@ -164,6 +169,11 @@ $(function(){
         appendgrandChildrenBox(insertHTML);
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
+          $('#size-box').remove();
+          $('#shoes-box').remove();
+          $('#kidsize-box').remove();
+          $('#kidbigsize-box').remove();
+          $('#kidshoes-box').remove();
           })
         })  
     .fail(function(){
