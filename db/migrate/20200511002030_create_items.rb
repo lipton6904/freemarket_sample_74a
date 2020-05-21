@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       # t.references :brand, foreign_key: true
       t.integer :condition_id, null: false
       t.integer :derivery_fee_id, null: false
-      t.string :shipping_area, null: false
+      t.integer :shipping_area_id, null: false
       t.integer :days_untill_shipping_id, null: false
       t.integer :status_id
       t.timestamps
