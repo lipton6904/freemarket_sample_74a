@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :update, :show]
   
   def index
   end
@@ -27,9 +27,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.order("ancestry,id").limit(13)
+    @item.images.find(params[:id])
   end
 
   def update
+    binding.pry
+    @item.update(item_params)
+    redirect_to root_path
   end
 
   def destroy
