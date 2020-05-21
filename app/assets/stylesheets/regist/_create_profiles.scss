@@ -1,0 +1,24 @@
+.registration {
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  width: 700px;
+  padding-bottom: 50px;
+  text-align: center;
+  &__message{
+    padding: 50px 0;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  &__list{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    &__box{
+      padding-bottom: 30px;
+      &-link{
+        font-size: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}

@@ -11,22 +11,13 @@
               出品画像
               %span.required 必須
             %p.sell__content__box__image__frame__comment 最大10枚までアップロードできます
-            .sell__content__box__image__frame__box
-              %label{class: "sell__content__box__image__frame__box__label"}
-                .sell__content__box__image__frame__box__label__btn
-                  %p.sell__content__box__image__frame__box__label__btn__comment
-                  = image_tag 'material/icon/icon_camera.png'
-                  %p ドラックアンドドロップまたはクリックしてファイルをアップロード
+            #image-box-1
+              .item-num-0#image-box__container
                 = f.fields_for :images do |i|
-                  .data-index-#image.index.js-file_group
-                    %span.js-remove 削除
-                    -#編集機能用フォーム
-                  -# - if @product.persisted?
-                  -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
-                  -# - if @product.persisted?
-                  -#   .js-file_group{"data-index" => "#{@product.images.count}"}
-                  -#     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                  -#     .js-remove 削除
+                  .input-area
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+                    %label{for: "img-file"}
+                      %i.fas.fa-camera
         .sell__content__box__product
           .sell__content__box__product__frame
             .sell__content__box__product__frame__name.titel
@@ -54,7 +45,7 @@
             -#   ブランド
             -#   %span.any 任意
             -# .sell__content__box__the-details__brand__select
-              -# = f.text_field :brand, id:brand_wrapper, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
+              -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
           .sell__content__box__the-details__status
             .sell__content__box__the-details__status__name.titel
               商品の状態
