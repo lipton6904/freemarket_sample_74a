@@ -1,0 +1,52 @@
+.content{
+  &__head{
+    text-align: center;
+    font-size: 20px;
+    padding: 8px 24px;
+    font-weight: bold;
+  }
+  &__main{
+    padding: 10px;
+    &__text{
+      padding-bottom: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      &__credit{
+        border: solid;
+        border-width: thin;
+        border-color: #33CCFF;
+        border-radius: 10px;
+        display: flex;
+        padding: 0 30px;
+        &__image{
+          padding: 10px;
+        }
+        &__box{
+          padding: 10px;
+        }
+      }
+      &__delete{
+        padding: 20px;
+        &__btn{
+          background-color: red;
+          color: white;
+          border-radius: 30px;
+          padding: 10px 30px;
+        }
+      }
+    }
+    &__bottom-text{
+      text-align: right;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
