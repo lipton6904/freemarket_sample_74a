@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :user_info, only:[:new]
 
   resources :items do
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
     resources :image
   
 
