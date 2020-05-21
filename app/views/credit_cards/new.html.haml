@@ -4,14 +4,14 @@
     %h2.credit-main__product-continer__title
       クレジットカード情報入力
     -# .credit-main__product-continer
-      form_withを使用する
+  = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do  
     .credit-main__product-continer__inner
       %ul.credit-main__product-continer__inner__head-line
         %li.credit-main__product-continer__inner__head-line__card-number
           カード番号
           %span.required
             必須
-      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "半角数字のみ"}
+      = text_field_tag "number", "", class: "input__default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
       %ul.credit-main__product-continer__inner__credit-icon-box
         %li.credit-main__product-continer__inner__credit-icon-box__icon
           = image_tag asset_path('credit-icon/credit-card_visa.png'), size: '45x28'
@@ -31,7 +31,7 @@
           %span.required
             必須
       .credit-main__product-continer__inner__select
-        %select.credit-main__product-continer__inner__select__box
+        %select#payment_card_month.credit-main__product-continer__inner__select__box{name: "payment_card_month", type: "text"}
           %option 01
           %option{value: "0"} 02
           %option{value: "1"} 03
@@ -48,7 +48,7 @@
           = icon("fas", "chevron-down")
           %span.credit-day
             月
-        %select.credit-main__product-continer__inner__select__box
+        %select#payment_card_year.credit-main__product-continer__inner__select__box{name: "payment_card_year", type: "text"}
           %option 20
           %option{value: "0"} 21
           %option{value: "1"} 22
@@ -69,10 +69,37 @@
           セキュリテイコード
           %span.required
             必須
-      %input.credit-main__product-continer__inner__text-box{type: "text", placeholder: "カード背面４桁もしくは３桁の番号"}
+      = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面3~4桁の番号'
       .credit-main__product-continer__inner__question
         ?カード裏面の番号とは？
       .credit-main__product-continer__inner__btn
-        追加する
+        = submit_tag "追加する", class: "add__btn", id: "payment_card_submit-button"
 = render "items/exisibition"
 = render "items/footer"
+
+
+.show
+  .show__frame
+    .show__frame__title
+      登録クレジットカード情報
+    .credit_card__list
+      .credit_card__list__title
+        クレジットカード一覧
+      .credit_card__list__frame
+        .credit_card_info
+          .credit_card_info__brand
+            -# = image_tag "credit-icon/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+          .credit_card_info__numbers
+            .number
+              -# = "**** **** **** " + @customer_card.last4
+            .expiration_date
+              .expiration_date__title
+                有効期限
+              .expiration_date__info
+                -# = @exp_month + " / " + @exp_year
+        .destroy__function
+          .destroy__function__link
+            -# = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
+              削除する
+      .payment-details
+        = link_to "支払い方法について >", "", class: "payment-details__btn"
