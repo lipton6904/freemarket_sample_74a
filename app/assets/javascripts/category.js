@@ -50,11 +50,11 @@ $(function(){
                       <span class="required"> 必須 </span>
                       <select id="kidsize_select" class="sell__content__box__the-details__status__select__box" name="item[size_id]">
                       <option value="">選択してください</option>
-                      <option value="1">60cm</option>
-                      <option value="2">70cm</option>
-                      <option value="3">80cm</option>
-                      <option value="4">90cm</option>
-                      <option value="5">95cm</option>
+                      <option value="11">60cm</option>
+                      <option value="12">70cm</option>
+                      <option value="13">80cm</option>
+                      <option value="14">90cm</option>
+                      <option value="15">95cm</option>
                       </select>
                       </div>`;
     $('#grandchildren_wrapper').after(kidSizeSelectHtml)
@@ -66,13 +66,13 @@ $(function(){
                       <span class="required"> 必須 </span>
                       <select id="kidbigsize_select" class="sell__content__box__the-details__status__select__box" name="item[size_id]">
                       <option value="">選択してください</option>
-                      <option value="1">100cm</option>
-                      <option value="2">110cm</option>
-                      <option value="3">120cm</option>
-                      <option value="4">130cm</option>
-                      <option value="5">140cm</option>
-                      <option value="5">150cm</option>
-                      <option value="5">160cm</option>
+                      <option value="21">100cm</option>
+                      <option value="22">110cm</option>
+                      <option value="23">120cm</option>
+                      <option value="24">130cm</option>
+                      <option value="25">140cm</option>
+                      <option value="26">150cm</option>
+                      <option value="27">160cm</option>
                       </select>
                       </div>`;
     $('#grandchildren_wrapper').after(kidBigSizeSelectHtml)
@@ -84,22 +84,22 @@ $(function(){
                       <span class="required"> 必須 </span>
                       <select id="shose_select" class="sell__content__box__the-details__status__select__box" name="item[size_id]">
                       <option value="">選択してください</option>
-                      <option value="1">20cm以下</option>
-                      <option value="2">20.5cm</option>
-                      <option value="3">21cm</option>
-                      <option value="4">21.5cm</option>
-                      <option value="5">22cm</option>
-                      <option value="6">22.5cm</option>
-                      <option value="7">23cm</option>
-                      <option value="8">23.5cm</option>
-                      <option value="9">24cm</option>
-                      <option value="10">24.5cm</option>
-                      <option value="11">25cm</option>
-                      <option value="12">25.5cm</option>
-                      <option value="13">26cm</option>
-                      <option value="14">26.5cm</option>
-                      <option value="15">27cm</option>
-                      <option value="16">27.5cm以外</option></select></div>`;
+                      <option value="31">20cm以下</option>
+                      <option value="32">20.5cm</option>
+                      <option value="33">21cm</option>
+                      <option value="34">21.5cm</option>
+                      <option value="35">22cm</option>
+                      <option value="36">22.5cm</option>
+                      <option value="37">23cm</option>
+                      <option value="38">23.5cm</option>
+                      <option value="39">24cm</option>
+                      <option value="40">24.5cm</option>
+                      <option value="41">25cm</option>
+                      <option value="42">25.5cm</option>
+                      <option value="43">26cm</option>
+                      <option value="44">26.5cm</option>
+                      <option value="45">27cm</option>
+                      <option value="46">27.5cm以外</option></select></div>`;
     $('#grandchildren_wrapper').after(shoesSelectHtml)
   }
   function appendkidShoesBox(){
@@ -109,15 +109,15 @@ $(function(){
                       <span class="required"> 必須 </span>
                       <select id="kidshose_select" class="sell__content__box__the-details__status__select__box" name="item[size_id]">
                       <option value="">選択してください</option>
-                      <option value="1">10.5cm以下</option>
-                      <option value="2">11・11.5cm</option>
-                      <option value="3">11・11.5cm</option>
-                      <option value="4">12・12.5cm</option>
-                      <option value="5">13・13.5cm</option>
-                      <option value="6">14・14.5cm</option>
-                      <option value="7">15・15.5cm</option>
-                      <option value="8">16・16.5cm</option>
-                      <option value="9">17cm以上</option></select></div>`;
+                      <option value="51">10.5cm以下</option>
+                      <option value="52">11・11.5cm</option>
+                      <option value="53">11・11.5cm</option>
+                      <option value="54">12・12.5cm</option>
+                      <option value="55">13・13.5cm</option>
+                      <option value="56">14・14.5cm</option>
+                      <option value="57">15・15.5cm</option>
+                      <option value="58">16・16.5cm</option>
+                      <option value="59">17cm以上</option></select></div>`;
     $('#grandchildren_wrapper').after(kidShoesSelectHtml)
   }
 

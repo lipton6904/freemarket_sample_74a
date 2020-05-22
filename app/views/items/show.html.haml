@@ -30,6 +30,7 @@
                 %tr
                   %th 出品者
                   %td yurie
+                  = current_user.name
                 %tr
                   %th カテゴリー
                   %td
@@ -47,17 +48,20 @@
                 %tr
                   %th 商品のサイズ
                   %td
+                    = @item.size_id
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td 
+                    = @item.condition.name
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td 
+                    = @item.derivery_fee.name
                 %tr
                   %th 発送元の地域
                   %td
                     = link_to "#" do
-                      岩手県
+                      = @item.shipping_area.name
                 %tr
                   %th 発送日の目安
                   %td 
@@ -76,15 +80,3 @@
           %span ベビーキッズをもっと見る
         .product-lists
 = render "footer"
-
-      t.string :name, null: false
-      t.integer :price_id, null: false
-      t.text :explanation, null: false
-      t.bigint :category_id, foreign_key: true
-      t.integer :size_id
-      # t.references :brand, foreign_key: true
-      t.integer :condition_id, null: false
-      t.integer :derivery_fee_id, null: false
-      t.integer :shipping_area_id, null: false
-      t.integer :days_untill_shipping_id, null: false
-      t.integer :status_id
