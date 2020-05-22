@@ -75,25 +75,3 @@
         = submit_tag "追加する", class: "add__btn", id: "payment_card_submit-button"
 = render "items/exisibition"
 = render "items/footer"
-
-.content
-  %h1.content__head
-    登録クレジットカード情報
-  .content__main
-    .content__main__text
-      クレジットカード一覧
-    .content__main__form
-      .content__main__form__credit
-        .content__main__form__credit__image
-          = image_tag asset_path('credit-icon/credit-card_visa.png'), size: '45x28'
-        .content__main__form__credit__box
-          .content__main__form__credit__box__number
-            **** **** **** 1234
-          .content__main__form__credit__box__deadline
-            有効期限　05/20
-      .content__main__form__delete
-        = link_to "#", method: :delete, class: "content__main__form__delete__btn" do 
-          削除する
-    .content__main__bottom-text
-      = link_to '支払い方法について'
-
