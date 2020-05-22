@@ -17,19 +17,20 @@
                   %li.show_index__content
                     = image_tag asset_path('material/show/index3.png'), size: "130x87", class: "png"
           .main__show-main__content-right__top-content__item-box__price
-            %span.font-size ¥30000
+            %span.font-size ¥
+            = @item.price_id
             .main__show-main__content-right__top-content__item-box__price__detail
               %span.tax （税込）
               %span.derivery-fee 送料込み
           .main__show-main__content-right__top-content__item-box__item-detail
-            商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、
-            商品説明、商品説明、商品説明、商品説明、商品説明、商品説明
+            = @item.explanation
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
                   %td yurie
+                  = current_user.name
                 %tr
                   %th カテゴリー
                   %td
@@ -47,20 +48,24 @@
                 %tr
                   %th 商品のサイズ
                   %td
+                    = @item.size_id
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td 
+                    = @item.condition.name
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td 
+                    = @item.derivery_fee.name
                 %tr
                   %th 発送元の地域
                   %td
                     = link_to "#" do
-                      岩手県
+                      = @item.shipping_area.name
                 %tr
                   %th 発送日の目安
-                  %td 4~7日で発送
+                  %td 
+                    = @item.days_untill_shipping.name
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
@@ -74,4 +79,4 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
--# = render "footer"
+= render "footer"
