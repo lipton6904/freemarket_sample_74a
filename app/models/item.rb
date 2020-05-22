@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many :images,inverse_of: :item
-  has_many :item_categories, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :categorie
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
