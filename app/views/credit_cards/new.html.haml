@@ -48,7 +48,7 @@
           %span.credit-day
             月
         %select#payment_card_year.credit-main__product-continer__inner__select__box{name: "payment_card_year", type: "text"}
-          %option 20
+          %option{value: "2020"} 20
           %option{value: "2021"} 21
           %option{value: "2022"} 22
           %option{value: "2023"} 23
@@ -76,5 +76,24 @@
 = render "items/exisibition"
 = render "items/footer"
 
-
+.content
+  %h1.content__head
+    登録クレジットカード情報
+  .content__main
+    .content__main__text
+      クレジットカード一覧
+    .content__main__form
+      .content__main__form__credit
+        .content__main__form__credit__image
+          = image_tag asset_path('credit-icon/credit-card_visa.png'), size: '45x28'
+        .content__main__form__credit__box
+          .content__main__form__credit__box__number
+            **** **** **** 1234
+          .content__main__form__credit__box__deadline
+            有効期限　05/20
+      .content__main__form__delete
+        = link_to "#", method: :delete, class: "content__main__form__delete__btn" do 
+          削除する
+    .content__main__bottom-text
+      = link_to '支払い方法について'
 
