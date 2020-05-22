@@ -94,13 +94,14 @@
     .main__pickup-category__product-box__head
       新規投稿商品
     .main__pickup-category__product-box__lists
-      = link_to items_path do
+    - @items.each do |item|
+      = link_to item_path(item.id) do
         .main__pickup-category__product-box__lists__list
           .main__pickup-category__product-box__lists__list__img
             = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
           .main__pickup-category__product-box__lists__list__body
             %h3.main__pickup-category__product-box__lists__list__body__name
-              product3
+              
             .main__pickup-category__product-box__lists__list__body__details
               %ul.main__pickup-category__product-box__lists__list__body__details__box
                 %li.main__pickup-category__product-box__lists__list__body__details__box__money
