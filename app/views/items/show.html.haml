@@ -17,13 +17,13 @@
                   %li.show_index__content
                     = image_tag asset_path('material/show/index3.png'), size: "130x87", class: "png"
           .main__show-main__content-right__top-content__item-box__price
-            %span.font-size ¥30000
+            %span.font-size ¥
+            = @item.price_id
             .main__show-main__content-right__top-content__item-box__price__detail
               %span.tax （税込）
               %span.derivery-fee 送料込み
           .main__show-main__content-right__top-content__item-box__item-detail
-            商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、商品説明、
-            商品説明、商品説明、商品説明、商品説明、商品説明、商品説明
+            = @item.explanation
           .table
             %table
               %tbody
@@ -60,7 +60,8 @@
                       岩手県
                 %tr
                   %th 発送日の目安
-                  %td 4~7日で発送
+                  %td 
+                    = @item.days_untill_shipping.name
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
@@ -74,4 +75,16 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
--# = render "footer"
+= render "footer"
+
+      t.string :name, null: false
+      t.integer :price_id, null: false
+      t.text :explanation, null: false
+      t.bigint :category_id, foreign_key: true
+      t.integer :size_id
+      # t.references :brand, foreign_key: true
+      t.integer :condition_id, null: false
+      t.integer :derivery_fee_id, null: false
+      t.integer :shipping_area_id, null: false
+      t.integer :days_untill_shipping_id, null: false
+      t.integer :status_id
