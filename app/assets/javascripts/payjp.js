@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function(){
         exp_month: document.getElementById("payment_card_month").value,
         exp_year: document.getElementById("payment_card_year").value
     };
-
+    console.log(card)
     Payjp.createToken(card, function(status, response) {  // トークン生成
       if (status === 200) { 
         //データをremoveAttr("name")で削除
