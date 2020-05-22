@@ -23,10 +23,9 @@ Rails.application.routes.draw do
       get 'category_grandchildren'
     end
     resources :image
-  
-
-  resources :buys, only: [:show]
   end
+  resources :buys, only: [:show]
+  
 
   resources :credit_cards, only: [:new, :create, :show, :destroy] do
   end
