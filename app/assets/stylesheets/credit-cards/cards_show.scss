@@ -31,6 +31,16 @@
           padding: 10px;
         }
       }
+      .content__main__home{
+        background-color: red;
+        border-radius: 30px;
+        padding: 5px 20px;
+        margin-left: 30px;
+        a{
+          color: white;
+          border-radius: 30px;
+        }
+      }
       &__delete{
         padding: 20px;
         &__btn{
@@ -42,7 +52,9 @@
       }
     }
     &__bottom-text{
-      text-align: right;
+      padding-top: 5px;
+      padding-right: 250px;
+      text-align: center;
       a{
         text-decoration: none;
         color: black;

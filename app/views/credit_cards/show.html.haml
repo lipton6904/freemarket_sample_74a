@@ -12,9 +12,12 @@
           .content__main__form__credit__box__number
             = "**** **** **** " + @customer_card.last4
           .content__main__form__credit__box__deadline
-            有効期限　05/20
+            有効期限 05/20
           .expiration_date__info
             = @exp_month + " / " + @exp_year  #showメソッドで定義した有効期限の年と月を取得
+      .content__main__home
+        = link_to new_mypage_path class: "mypage__link" do
+          マイページに戻る
       .content__main__form__delete
         = link_to "#", method: :delete, class: "content__main__form__delete__btn" do 
           削除する

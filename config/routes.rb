@@ -21,6 +21,14 @@ Rails.application.routes.draw do
     resources :image
   
 
+    resources :items   do
+      resources :buys do
+        collection do
+          post 'pay', to: 'buys#pay'
+        end
+      end
+    end
+
   resources :buys, only: [:show]
   end
 

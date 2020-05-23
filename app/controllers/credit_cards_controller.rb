@@ -50,8 +50,7 @@ class CreditCardsController < ApplicationController
       @card.delete
     end
       if @card.destroy
-      else
-        redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+        redirect_to root_path
       end
   end
 end
