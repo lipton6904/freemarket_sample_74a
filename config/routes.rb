@@ -23,8 +23,18 @@ Rails.application.routes.draw do
       get 'category_grandchildren'
     end
     resources :image
-  end
+  
+    resources :items   do
+      resources :buys do
+        collection do
+          post 'pay', to: 'buys#pay'
+        end
+      end
+    end
+
   resources :buys, only: [:show]
+  end
+  
   
 
   resources :credit_cards, only: [:new, :create, :show, :destroy] do

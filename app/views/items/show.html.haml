@@ -63,8 +63,9 @@
                     = @item.shipping_area.name
                 %tr
                   %th 発送日の目安
-                  %td 
-                    = @item.days_untill_shipping.name
+                  %td 4~7日で発送
+          .buy__link
+            = link_to  "購入画面へすすむ", item_buy_path(@item)
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
