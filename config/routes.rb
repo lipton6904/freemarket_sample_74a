@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   resources :user_info, only:[:new]
 
   resources :items do
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
     resources :image
   
-
     resources :items   do
       resources :buys do
         collection do
@@ -31,6 +34,8 @@ Rails.application.routes.draw do
 
   resources :buys, only: [:show]
   end
+  
+  
 
   resources :credit_cards, only: [:new, :create, :show, :destroy] do
   end

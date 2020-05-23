@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_one :credit_card, dependent: :destroy
+  has_many :items
   validates :birth_day, presence: true
   validates :nickname, :encrypted_password, presence: true
   validates :password, presence: true, length: { minimum: 7 }

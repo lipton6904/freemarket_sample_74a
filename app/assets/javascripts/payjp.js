@@ -1,12 +1,13 @@
-window.addEventListener('DOMContentLoaded', function(){
+ window.addEventListener('DOMContentLoaded', function(){
 
   let submit = document.getElementById("payment_card_submit-button");
 
-  Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵
+   Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵
 
-    submit.addEventListener('click', function(e){ //ボタン押すとトークン作成
+     submit.addEventListener('click', function(e){ //ボタン押すとトークン作成
 
-    e.preventDefault(); //ボタンを無効
+     e.preventDefault(); //ボタンを無効
+
 
     let card = { //カード入力情報
         number: document.getElementById("card_number").value,
