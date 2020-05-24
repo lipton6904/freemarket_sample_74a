@@ -1,12 +1,13 @@
-window.addEventListener('DOMContentLoaded', function(){
+ window.addEventListener('DOMContentLoaded', function(){
 
   let submit = document.getElementById("payment_card_submit-button");
 
-  Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵
+   Payjp.setPublicKey('pk_test_4d7d704af23ffee45efd6847'); //公開鍵
 
-    submit.addEventListener('click', function(e){ //ボタン押すとトークン作成
+     submit.addEventListener('click', function(e){ //ボタン押すとトークン作成
 
-    e.preventDefault(); //ボタンを無効
+     e.preventDefault(); //ボタンを無効
+
 
     let card = { //カード入力情報
         number: document.getElementById("card_number").value,
@@ -14,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function(){
         exp_month: document.getElementById("payment_card_month").value,
         exp_year: document.getElementById("payment_card_year").value
     };
-
+    console.log(card)
     Payjp.createToken(card, function(status, response) {  // トークン生成
       if (status === 200) { 
         //データをremoveAttr("name")で削除

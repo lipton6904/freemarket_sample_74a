@@ -74,9 +74,15 @@
               ／
               = link_to item_path(@item),method: :delete, class: "btn"  do
                 削除する
+<<<<<<< HEAD
             - else
               -# = link_to  pay_item_item_buys_path(item_id: @item.id), method: :post, class: "btn" do
               購入する
+=======
+
+          .buy__link
+            = link_to  "購入画面へすすむ", item_buy_path(@item)
+>>>>>>> 7673c25ab7bfb24105d0e4035aabb6b65714ca83
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
