@@ -116,9 +116,14 @@
         font-weight: bold;
         font-size: 22px;
         }
-      } 
+        &__destroy-btn{
+          a{
+          color: #3CCACE;
+          }
+        }
     }
   }
+}
 }
 ol, ul {
   list-style: none;
