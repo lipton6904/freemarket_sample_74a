@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :destroy, :show]
-  # before_action :set_current_user
   def index
     @items = Item.all
   end
@@ -36,8 +35,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path, notice: '削除が完了しました'
+    if user_signed_in? && current_user.id == @item.seller_id
+      if @item.destroy.find(params[:id])
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path, notice: '権限がありません'
+    end
   end
 
   def category_children
@@ -57,7 +63,4 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
-  # def set_current_user
-  #   @current_user = User.find_by(id: session[:user_id])
-  # end
 end

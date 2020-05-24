@@ -17,20 +17,22 @@
           &__body{
             margin: 16px 0 0;
             .main_image{
-              width: 560px;
+              width: 500px;
               margin: 0 auto;
               .main_photo {
-                // margin: 0 auto;
+                text-align: center;
+                width: 500px;
                 .show_index{
-                  display: flex;
-                  justify-content: center;
+                  // display: flex;
+                  // justify-content: center;
+                  width: 500px;
+                  flex-wrap: nowrap;
                   margin-top: 10px;
                   &__content{
-                    width: 25%;
-                    margin: 0 10px 0 0;
+                    margin: 0 5px 0 0;
                     .png{
                       object-fit: cover;
-                      height: 87px; //画像修正確認すること
+                      height: 87px;
                     }
                   }
                 }
@@ -44,7 +46,7 @@
             flex-direction: column;
             .font-size{
               color: black;
-              font-size: 40px;
+              font-size: 30px;
               font-weight: bold;
               margin: 0 10px 0 0;
             }
