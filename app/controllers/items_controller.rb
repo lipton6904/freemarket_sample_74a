@@ -32,9 +32,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    @item.destroy
-    redirect_to root_path
+    if  @item.destroy
+      redirect_to root_path, notice: '削除が完了しました'
+    else
+      redirect_to root_path
+    end
   end
 
   def category_children
@@ -51,5 +53,6 @@ private
   end
   def set_item
     @item = Item.find(params[:id])
+    
   end
 end
