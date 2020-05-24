@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_123856) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancestry", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_123856) do
     t.integer "derivery_fee_id", null: false
     t.integer "shipping_area_id", null: false
     t.integer "days_untill_shipping_id", null: false
-    t.integer "status_id", null: false
+    t.integer "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "categorie_id", null: false
