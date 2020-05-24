@@ -34,8 +34,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if user_signed_in? && current_user.id == @item.buyer_id
+      if @item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path, notice: '権限がありません'
+    end
   end
 
   def category_children
@@ -52,5 +59,6 @@ private
   end
   def set_item
     @item = Item.find(params[:id])
+    
   end
 end
