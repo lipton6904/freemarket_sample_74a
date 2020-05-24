@@ -52,20 +52,25 @@
                 %tr
                   %th 商品の状態
                   %td 
-                    = @item.condition.name
+                    = @item.condition_id
                 %tr
                   %th 配送料の負担
                   %td 
-                    = @item.derivery_fee.name
+                    = @item.derivery_fee_id
                 %tr
                   %th 発送元の地域
                   %td 
-                    = @item.shipping_area.name
+                    = @item.shipping_area_id
                 %tr
                   %th 発送日の目安
+
+                  %td 
+                    = @item.days_untill_shipping_id
+
                   %td 4~7日で発送
           .buy__link
             = link_to  "購入画面へすすむ", item_buy_path(@item)
+
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
@@ -79,4 +84,7 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
+          .related-items__destroy-btn
+            - if user_signed_in? && current_user.id == @item.buyer_id
+              = link_to '出品の削除', item_path(@item), method: :delete
 = render "footer"
