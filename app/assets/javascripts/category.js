@@ -6,7 +6,7 @@ $(function(){
   function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
       childSelectHtml = `<div class='sell__content__box__the-details__category__select' id= 'children_wrapper'>
-                        <select class="sell__content__box__the-details__category__select__box" id="child_category" name="item[category_id]">
+                        <select class="sell__content__box__the-details__category__select__box" id="child_category" name="item[categorie_id]">
                         <option value="">選択してください</option>
                         ${insertHTML}
                         </select>
@@ -16,7 +16,7 @@ $(function(){
   function appendgrandChildrenBox(insertHTML){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='sell__content__box__the-details__category__select' id= 'grandchildren_wrapper'>
-                              <select class="sell__content__box__the-details__category__select__box" id="grandchild_category" name="item[category_id]">
+                              <select class="sell__content__box__the-details__category__select__box" id="grandchild_category" name="item[categorie_id]">
                               <option value="">選択してください</option>
                               ${insertHTML}
                               </select>

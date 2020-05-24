@@ -9,7 +9,7 @@
           .main__show-main__content-right__top-content__item-box__body
             %ul.main_image
               %li.main_photo
-                -# = image_tag @items.image.image,size:"250x300"
+                -# = image_tag @items.image[item_id]
                 %ul.show_index
                   %li.show_index__content
                   - @item.images.each do |image|
@@ -68,6 +68,15 @@
                   %th 発送日の目安
                   %td 
                     = @item.days_untill_shipping.name
+            - if @user.id != @item.seller_id
+              -# = link_to  pay_item_item_buys_path(item_id: @item.id), method: :post, class: "btn" do
+              購入する
+            - else
+              = link_to edit_item_path(@item.id), class: "btn"  do
+                編集する
+              ／
+              = link_to item_path(@item),method: :delete, class: "btn"  do
+                削除する
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
@@ -81,4 +90,5 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
+        
 = render "footer"

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :destroy, :show]
+  # before_action :set_current_user
   def index
     @items = Item.all
   end
@@ -11,7 +12,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @items = Item.includes(:images).order('created_at DESC')
     @user = User.find_by(id: @item.seller_id)
   end
@@ -19,21 +19,25 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if  @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '出品が完了しました'
     else
       redirect_to root_path
     end
   end
 
   def edit
+    @category = Categorie.order("ancestry,id").limit(13)
+    @item.images.find(params[:id])
   end
 
   def update
+    @item.update(item_params)
+    redirect_to root_path
   end
 
   def destroy
     @item.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: '削除が完了しました'
   end
 
   def category_children
@@ -48,9 +52,12 @@ class ItemsController < ApplicationController
 
 private
   def item_params
-    params.require(:item).permit(:name, :price_id, :explanation, :category_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
   end
+  # def set_current_user
+  #   @current_user = User.find_by(id: session[:user_id])
+  # end
 end
