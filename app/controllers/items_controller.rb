@@ -15,12 +15,11 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    # @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def create
     @item = Item.new(item_params)
-    binding.pry
     if  @item.save
       redirect_to root_path
     else
