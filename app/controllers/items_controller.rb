@@ -11,8 +11,10 @@ class ItemsController < ApplicationController
   end
   
   def show
+
     @items = Item.includes(:images).order('created_at DESC')
     @user = User.find_by(id: @item.seller_id)
+
   end
 
   def create
