@@ -55,15 +55,15 @@
                 %tr
                   %th 商品の状態
                   %td 
-                    = @item.condition.name
+                    = @item.condition_id
                 %tr
                   %th 配送料の負担
                   %td 
-                    = @item.derivery_fee.name
+                    = @item.derivery_fee_id
                 %tr
                   %th 発送元の地域
                   %td 
-                    = @item.shipping_area.name
+                    = @item.shipping_area_id
                 %tr
                   %th 発送日の目安
                   %td 
@@ -90,5 +90,4 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
-        
 = render "footer"
