@@ -35,10 +35,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if  @item.destroy
-      redirect_to root_path, notice: '削除が完了しました'
+    if user_signed_in? && current_user.id == @item.buyer_id
+      if @item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path
+      end
     else
-      redirect_to root_path
+      redirect_to root_path, notice: '権限がありません'
     end
   end
 
