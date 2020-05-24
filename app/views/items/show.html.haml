@@ -77,6 +77,9 @@
               ／
               = link_to item_path(@item),method: :delete, class: "btn"  do
                 削除する
+
+          .buy__link
+            = link_to  "購入画面へすすむ", item_buy_path(@item)
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do

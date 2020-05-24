@@ -17,13 +17,9 @@ class CreditCardsController < ApplicationController
         card: params["payjp_token"],
         metadata: {user_id: current_user.id}
       )
-      @card = CreditCard.new(
-        user_id: current_user.id, 
-        customer_id: customer.id, 
-        card_id: customer.default_card
-      )
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to card_path(current_user.id)
+        redirect_to  credit_card_path(@card)
       else
         redirect_to  new_credit_card_path
       end
@@ -31,31 +27,15 @@ class CreditCardsController < ApplicationController
   end
 
   def show
-    @card = CreditCard.find_by(user_id: current_user.id)
+    @card = CreditCard.find_by(user_id: current_user.id) #ログインユーザーの登録の有無
     if @card.blank?
       redirect_to action: "new" 
     else
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @customer_card = customer.cards.retrieve(@card.card_id)
-      @card_brand = @customer_card.brand
-      case @card_brand
-      when "Visa"
-        @card_src = "visa.png"
-      when "JCB"
-        @card_src = "jcb.png"
-      when "MasterCard"
-        @card_src = "master.png"
-      when "American Express"
-        @card_src = "amex.png"
-      when "Diners Club"
-        @card_src = "diners.png"
-      when "Discover"
-        @card_src = "discover.png"
-      end
-
-      @exp_month = @customer_card.exp_month.to_s
-      @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+      customer = Payjp::Customer.retrieve(@card.customer_id) #ログインユーザーの情報を取り出す
+      @customer_card = customer.cards.retrieve(@card.card_id) #顧客情報からカードの情報を取り出す
+      @exp_month = @customer_card.exp_month.to_s #有効期限（月）
+      @exp_year = @customer_card.exp_year.to_s.slice(2,3) #有効期限（年）
     end
   end
   
@@ -70,8 +50,7 @@ class CreditCardsController < ApplicationController
       @card.delete
     end
       if @card.destroy
-      else
-        redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+        redirect_to root_path
       end
   end
 end
