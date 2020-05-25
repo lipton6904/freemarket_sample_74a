@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+  
   before_action :set_item, only: [:edit, :destroy, :show]
+
   def index
     @items = Item.all
   end
@@ -15,10 +17,8 @@ class ItemsController < ApplicationController
   end
   
   def show
-
     @items = Item.includes(:images).order('created_at DESC')
     @user = User.find_by(id: @item.seller_id)
-
   end
 
   def create
@@ -32,13 +32,13 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Categorie.order("ancestry,id").limit(13)
-    @item.images.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
-  # def update
-  #   @item.update(item_params)
-  #   redirect_to root_path
-  # end
+  def update
+    @item.update(item_params)
+    redirect_to root_path
+  end
 
   def destroy
     if user_signed_in? && current_user.id == @item.seller_id
