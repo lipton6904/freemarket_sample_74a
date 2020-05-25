@@ -1,1 +1,127 @@
-絵でっと
+.sell
+  %header.sell__header
+    = link_to root_path do
+      = image_tag 'material/logo/logo.png'
+  .sell__content
+    = form_with model: @item do |f|
+      .sell__content__box
+        .sell__content__box__image
+          .sell__content__box__image__frame
+            .sell__content__box__image__frame__name.titel
+              出品画像
+              %span.required 必須
+            %p.sell__content__box__image__frame__comment 最大10枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+
+                //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
+                - @item.images.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "122", height: "122", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+
+                //プレビューの数に合わせてforオプションを指定
+                = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+                  %i.fas.fa-camera
+              .hidden-content
+                = f.fields_for :images do |i|
+
+                  //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                  = i.file_field :image, class: "hidden-field"
+                  = i.check_box:_destroy, class: "hidden-checkbox"
+
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @item.images.length.upto(9) do |i|
+                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .sell__block__form__name
+          .form-group__name
+        .sell__content__box__product
+          .sell__content__box__product__frame
+            .sell__content__box__product__frame__name.titel
+              商品名
+              %span.required 必須
+            .sell__content__box__product__frame__input
+              = f.text_field :name, class:"sell__content__box__product__frame__input__text", placeholder: "40字文字まで"
+          .sell__content__box__product__frame2
+            .sell__content__box__product__frame2__name.titel
+              商品の説明
+              %span.required 必須
+            .sell__content__box__product__frame2__text
+              = f.text_area :explanation, class:"sell__content__box__product__frame2__text__area", placeholder: "商品の説明(必須1,000文字以内)\n(色、素材、重さ、定価、注意点など)\n\n例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sell__content__box__the-details
+          .sell__content__box__the-details__title
+            商品の詳細
+          .sell__content__box__the-details__category
+            .sell__content__box__the-details__category__name.titel
+              カテゴリー
+              %span.required 必須
+            .sell__content__box__the-details__category__select
+              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box"
+          .sell__content__box__the-details__brand
+            -# .sell__content__box__the-details__brand__name.titel
+            -#   ブランド
+            -#   %span.any 任意
+            -# .sell__content__box__the-details__brand__select
+              -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
+          .sell__content__box__the-details__status
+            .sell__content__box__the-details__status__name.titel
+              商品の状態
+              %span.required 必須
+            .sell__content__box__the-details__status__select
+              = f.collection_select( :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__the-details__status__select__box"})
+        .sell__content__box__delivery
+          .sell__content__box__delivery__title
+            配送について
+          .sell__content__box__delivery__burden
+            .sell__content__box__delivery__burden__name.titel
+              配送料の負担
+              %span.required 必須
+            .sell__content__box__delivery__burden__select
+              = f.collection_select( :derivery_fee_id, DeriveryFee.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__delivery__burden__select__box"})
+          .sell__content__box__delivery__area
+            .sell__content__box__delivery__area__name.titel
+              発送元の地域
+              %span.required 必須
+            .sell__content__box__delivery__area__select
+              = f.collection_select( :shipping_area_id, ShippingArea.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__delivery__area__select__box"})
+          .sell__content__box__delivery__days
+            .sell__content__box__delivery__days__name.titel
+              発送までの日数
+              %span.required 必須
+            .sell__content__box__delivery__days__select
+              = f.collection_select( :days_untill_shipping_id, DaysUntillShipping.all, :id, :name, {prompt: "選択してください"}, {class: "sell__content__box__delivery__days__select__box"})
+        .sell__content__box__selling-price
+          .sell__content__box__selling-price__name
+            価格（¥300〜9,999,999）
+          .sell__content__box__selling-price__price
+            .sell__content__box__selling-price__price__name.titel
+              販売価格
+              %span.required 必須
+              .sell__content__box__selling-price__price__name__input
+                ¥
+                = f.number_field :price_id,placeholder: "0"
+            .sell__content__box__selling-price__price__fee
+              -# 販売手数料（10%）
+            .sell__content__box__selling-price__price__profit
+              -# 販売利益
+        .sell__content__box__sales-profit
+          .sell__content__box__sales-profit__btn
+            = f.submit '編集する',class: "submit-btn"
+            = link_to "もどる",root_path,class: "sell_link sell_btn"
+          .sell__content__box__sales-profit__text
+            禁止されている
+            = link_to "行為","#",class: "sell_link"
+            および
+            = link_to "出品物","#",class: "sell_link"
+            を必ずご確認ください。
+            = link_to "偽ブランド品","#",class: "sell_link"
+            や
+            = link_to "盗品物","#",class: "sell_link"
+            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+            = link_to "加盟店規約","#",class: "sell_link"
+            に同意したことになります。
