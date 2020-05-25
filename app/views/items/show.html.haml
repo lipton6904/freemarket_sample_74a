@@ -4,21 +4,20 @@
     .main__show-main__content-right
       .main__show-main__content-right__top-content
         .main__show-main__content-right__top-content__item-box
-          %h2.main__show-main__content-right__top-content__item-box__name product3
+          %h2.main__show-main__content-right__top-content__item-box__name 
+            = @item.name
           .main__show-main__content-right__top-content__item-box__body
             %ul.main_image
               %li.main_photo
-                = image_tag asset_path('material/show/main.png'), size: "560x346"
+                = image_tag @item.images&.first&.image.to_s
                 %ul.show_index
                   %li.show_index__content
-                    = image_tag asset_path('material/show/index1.png'), size: "130x87", class: "png"
-                  %li.show_index__content
-                    = image_tag asset_path('material/show/index2.png'), size: "130x87", class: "png"
-                  %li.show_index__content
-                    = image_tag asset_path('material/show/index3.png'), size: "130x87", class: "png"
+                  - @item.images.each do |image|
+                    = image_tag image.image.to_s, size: "130x87", class: "png"
           .main__show-main__content-right__top-content__item-box__price
-            %span.font-size ¥
-            = @item.price_id
+            %span.font-size
+              ¥
+              = @item.price_id
             .main__show-main__content-right__top-content__item-box__price__detail
               %span.tax （税込）
               %span.derivery-fee 送料込み
@@ -29,19 +28,23 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td yurie
-                  -# = current_user.name
+                  %td 
+                    = @user.nickname
                 %tr
                   %th カテゴリー
                   %td
                     = link_to "#" do
-                      %span ベビー・キッズ
+                      %span
+                        = @item.categorie.parent.parent.name
+                      
                     %br  
                     = link_to "#" do
-                      %span ベビー服（男女兼用）　~95cm
+                      %span 
+                        = @item.categorie.parent.name
                     %br
                     = link_to "#" do
-                      %span アウター
+                      %span 
+                        = @item.categorie.name
                 -# %tr
                 -#   %th ブランド
                 -#   %td 
@@ -52,30 +55,33 @@
                 %tr
                   %th 商品の状態
                   %td 
-                    = @item.condition_id
+                    = @item.condition.name
                 %tr
                   %th 配送料の負担
                   %td 
-                    = @item.derivery_fee_id
+                    = @item.derivery_fee.name
                 %tr
                   %th 発送元の地域
                   %td 
-                    = @item.shipping_area_id
+                    = @item.shipping_area.name
                 %tr
                   %th 発送日の目安
-
                   %td 
-                    = @item.days_untill_shipping_id
-
-                  %td 4~7日で発送
-          .buy__link
-            = link_to  "購入画面へすすむ", item_buy_path(@item)
-
+                    = @item.days_untill_shipping.name
+            - if user_signed_in? && current_user.id == @item.seller_id
+              = link_to edit_item_path(@item.id), class: "btn"  do
+                編集する
+              ／
+              = link_to item_path(@item),method: :delete, class: "btn"  do
+                削除する
+            - else
+              .buy__link
+                = link_to  "購入画面へすすむ", item_buy_path(@item)          
       %ul.main__show-main__content-right__top-content__links
         %li
           = link_to "#" do
-            %i.fa.angele-left
             .item-link < 前の商品
+            %i.fa.angele-left
         %li
           = link_to "#" do
             .item-link 後ろの商品 >
@@ -84,7 +90,5 @@
         = link_to "#" do
           %span ベビーキッズをもっと見る
         .product-lists
-          .related-items__destroy-btn
-            - if user_signed_in? && current_user.id == @item.buyer_id
-              = link_to '出品の削除', item_path(@item), method: :delete
+        
 = render "footer"

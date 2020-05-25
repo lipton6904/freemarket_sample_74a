@@ -11,13 +11,27 @@
               出品画像
               %span.required 必須
             %p.sell__content__box__image__frame__comment 最大10枚までアップロードできます
-            #image-box-1
-              .item-num-0#image-box__container
+            .post__drop__box__container
+              .prev-content
+                - @item.images.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "122", height: "122", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+                = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+                  %i.fas.fa-camera
+              .hidden-content
                 = f.fields_for :images do |i|
-                  .input-area
-                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
-                    %label{for: "img-file"}
-                      %i.fas.fa-camera
+                  = i.file_field :image, class: "hidden-field"
+                  = i.check_box:_destroy, class: "hidden-checkbox"
+                - @item.images.length.upto(9) do |i|
+                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .sell__block__form__name
+          .form-group__name
         .sell__content__box__product
           .sell__content__box__product__frame
             .sell__content__box__product__frame__name.titel
@@ -39,8 +53,8 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :categorie_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "sell__content__box__the-details__category__select__box"}
-          -# .sell__content__box__the-details__brand
+              = f.collection_select :categorie_id,  @category, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box"
+          .sell__content__box__the-details__brand
             -# .sell__content__box__the-details__brand__name.titel
             -#   ブランド
             -#   %span.any 任意
@@ -89,7 +103,7 @@
               -# 販売利益
         .sell__content__box__sales-profit
           .sell__content__box__sales-profit__btn
-            = f.submit '出品する',class: "submit-btn"
+            = f.submit '編集する',class: "submit-btn"
             = link_to "もどる",root_path,class: "sell_link sell_btn"
           .sell__content__box__sales-profit__text
             禁止されている
