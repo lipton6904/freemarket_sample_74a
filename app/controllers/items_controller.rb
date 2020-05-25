@@ -8,9 +8,7 @@ class ItemsController < ApplicationController
   def new
     @parents = Category.order("ancestry,id").limit(13)
     @item = Item.new
-    @item.images.new
-    # @images = @item.images.new 
-    # @item.images.build
+    @item.images.build
   end
   
   def show
@@ -28,7 +26,24 @@ class ItemsController < ApplicationController
 
   def edit
     @parents = Category.order("ancestry,id").limit(13)
-    @item.images.find(params[:id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+  end
+
+  def destroy
+    if user_signed_in? && current_user.id == @item.seller_id
+      if@item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path, notice: '削除できませんでした'
+      end
+    else
+      redirect_to root_path, notice: '権限がありません'
+    end
   end
 
   def update
@@ -49,7 +64,6 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
-
 
   # def set_categor
   # @smallcategory =Category.find(Category.find(@items.category_id).
