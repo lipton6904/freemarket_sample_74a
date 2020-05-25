@@ -55,15 +55,15 @@
                 %tr
                   %th 商品の状態
                   %td 
-                    = @item.condition_id
+                    = @item.condition.name
                 %tr
                   %th 配送料の負担
                   %td 
-                    = @item.derivery_fee_id
+                    = @item.derivery_fee.name
                 %tr
                   %th 発送元の地域
                   %td 
-                    = @item.shipping_area_id
+                    = @item.shipping_area.name
                 %tr
                   %th 発送日の目安
                   %td 
