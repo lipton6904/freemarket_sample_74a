@@ -1,15 +1,14 @@
 class Item < ApplicationRecord
   has_many :images,inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
-  belongs_to :categorie
-  belongs_to :user
+  belongs_to :categorie, optional: true
+  belongs_to :user, optional: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :condition
   belongs_to_active_hash :derivery_fee
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :days_untill_shipping
-
   validates :images, presence: true, length: {manimum: 1, maximum: 10}
   validates :name,length: { in: 1..40 }
   validates :explanation,length: { in: 1..1000 }
