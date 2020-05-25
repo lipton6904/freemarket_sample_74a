@@ -11,12 +11,13 @@
         .confirmation__main__product-continer__buy-item__inner
           .confirmation__main__product-continer__buy-item__inner__box
             .confirmation__main__product-continer__buy-item__inner__box__item-image
-              = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
+              - @item.images.each do |image|
+                = image_tag image.image.to_s, size: "100x100", class: "png"
             .confirmation__main__product-continer__buy-item__inner__box__item-detail
               .confirmation__main__product-continer__buy-item__inner__box__item-detail__name
-                顔イメージ
+              
               %span.confirmation__main__product-continer__buy-item__inner__box__item-detail__price
-                ¥200
+                = "¥" + @item.price_id.to_s
                 %span.confirmation__main__product-continer__buy-item__inner__box__item-detail__price__included
                   （税込）送料込み
       .confirmation__main__product-continer__payment
@@ -27,7 +28,7 @@
               支払い金額
             %li.confirmation__main__product-continer__payment__inner__price-table__price
               %span.confirmation__main__product-continer__payment__inner__price-table__label__price__decoration
-                ¥880
+                = "¥" + @item.price_id.to_s
           %ul.confirmation__main__product-continer__payment__inner__point-table
             %li.confirmation__main__product-continer__payment__inner__point-table__point-use
               .confirmation__main__product-continer__payment__inner__point-table__point-use__check-box
@@ -39,25 +40,20 @@
         .confirmation__main__product-continer__payment-method__inner
           支払い方法
           .confirmation__main__product-continer__payment-method__inner__link
-            -# リンク先を入れる
+            = link_to new_credit_card_path do
+              変更する
             %p.confirmation__main__product-continer__payment-method__inner__link__icon
-              +
               %span.confirmation__main__product-continer__payment-method__inner__link__icon__registration
-                登録してください
-      .confirmation__main__product-continer__shipping-address
-        .confirmation__main__product-continer__shipping-address__inner
-          配送先
-          .confirmation__main__product-continer__shipping-address__inner__link
-            -# リンク先を入れる
-            %p.confirmation__main__product-continer__shipping-address__inner__link__icon
-              +
-              %span.confirmation__main__product-continer__shipping-address__inner__link__icon__registration
-                登録してください
       .confirmation__main__product-continer__buy-user-text
-        %p.confirmation__main__product-continer__buy-user-text__info-text
-          郵便局/コンビニ受取をご希望の方は、購入後に
-          %span
-            取引画面
-          から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+        .purchase__confirmation__main__payment__card__info__number
+          - if @default_card_information.blank?
+            %br 
+          - else
+            = "**** **** **** " + @customer_card.last4
+          .purchase__confirmation__main__payment__card__info__monthyear
+            - exp_month =@customer_card.to_s
+            - exp_year = @customer_card.to_s.slice(2,3)
           .confirmation__main__product-continer__buy-user-text__info-text__btn
-            購入する
+            = link_to  pay_item_item_buys_path(item_id: @item.id), method: :post, class: "btn" do
+              購入する
+= render 'items/footer'            

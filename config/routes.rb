@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rename/categories'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -9,11 +10,36 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :credit_cards, only:[:new]
+  resources :mypage, only:[:new]
+  resources :address, only:[:new]
+  resources :inquiry, only:[:new]
+  resources :logout, only:[:new]
+  resources :mail_password, only:[:new]
+  resources :profile, only:[:new]
+  resources :user_info, only:[:new]
 
   resources :items do
-    resources :image
-
-    resources :buys, only: [:show]
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
     end
+    resources :image
+  
+    resources :items   do
+      resources :buys do
+        collection do
+          post 'pay', to: 'buys#pay'
+        end
+      end
+    end
+
+  resources :buys, only: [:show]
   end
+  
+  
+
+  resources :credit_cards, only: [:new, :create, :show, :destroy] do
+  end
+
+end
 

@@ -12,15 +12,13 @@
               = image_tag 'material/icon/icon-search 1.png', size: '20x20'
     .header__header-inner__category
       %ul.header__header-inner__category__left-box
-        %li.header__header-inner__category__left-box__left-item
-          = link_to "カテゴリー"
         %li.header__header-inner__category__left-box__right-item
           = link_to "ブランド"
       %ul.header__header-inner__category__right-box
         %li.header__header-inner__category__right-box__left-item
         - if user_signed_in?
           = link_to 'ログアウト', destroy_user_session_path, method: :delete
-          -# = link_to 'マイページ', user_path(current_user)
+          = link_to 'マイページ', new_mypage_path(current_user)
         - else
           = link_to "ログイン", new_user_session_path
           = link_to new_user_registration_path do

@@ -40,7 +40,6 @@
         &__frame{
           &__comment{
             font-size: 14px;
-            margin: 16px 0;
           }
         }
       }
@@ -148,7 +147,7 @@
         }
         .submit-btn{
           @include he_wi(46px,310px);
-          background-color: #ea352d;
+          background-color: #EA352D;
           color: #fff;
           font-size: 17px;
           border-radius: 4px;
@@ -171,17 +170,16 @@
   }
 }
 .sell_link{
-  color: #0095ee;
+  color: #0095EE;
   text-decoration: none;
 }
-
 .titel{
   font-size: 14px;
   font-weight: bold;
 }
 .required{
   margin-left: 8px;
-  background-color: #ff0211;
+  background-color: #FF0211;
   color: #fff;
   font-weight: 600;
   font-size: 12px;
@@ -190,17 +188,6 @@
   display: inline-block;
   border-radius: 2px;
 }
-// .any{
-//   margin-left: 8px;
-//   background-color: #bfbfbf;
-//   color: #fff;
-//   font-weight: 600;
-//   font-size: 12px;
-//   padding: 0 4px;
-//   line-height: 1.4em;
-//   display: inline-block;
-//   border-radius: 2px;
-// }
 .item-num-0{
   width: 100%;
 }

@@ -1,5 +1,5 @@
 # レディース
-lady = Category.create(name: "レディース")
+lady = Categorie.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_2 = lady.children.create(name: "ジャケット/アウター")
 lady_3 = lady.children.create(name: "パンツ")
@@ -39,7 +39,7 @@ lady_17.children.create([{name: "スカートスーツ上下"},{name: "パンツ
 lady_18.children.create([{name: "トップス"},{name: "アウター"},{name: "インナー"},{name: "ワンピース"},{name: "パンツ/スパッツ"},{name: "スカート"},{name: "パジャマ"},{name: "授乳服"},{name: "その他"}])
 lady_19.children.create([{name: "コスプレ"},{name: "下着"},{name: "その他"}])
 # メンズ
-mens = Category.create(name: "メンズ")
+mens = Categorie.create(name: "メンズ")
 mens_1 = mens.children.create(name: "トップス")
 mens_2 = mens.children.create(name: "ジャケット/アウター")
 mens_3 = mens.children.create(name: "パンツ")
@@ -68,7 +68,7 @@ mens_11.children.create([{name: "一般水着"},{name: "スポーツ用"},{name:
 mens_12.children.create([{name: "ソックス"},{name: "レギンス/スパッツ"},{name: "レッグウォーマー"},{name: "その他"}])
 mens_13.children.create([{name: "トランクス"},{name: "ボクサーパンツ"},{name: "その他"}])
 # ベビー・キッズ
-baby_kids = Category.create(name: "ベビー・キッズ")
+baby_kids = Categorie.create(name: "ベビー・キッズ")
 baby_kids_1 = baby_kids.children.create(name: "ベビー服(女の子用) ~95cm")
 baby_kids_2 = baby_kids.children.create(name: "ベビー服(男の子用) ~95cm")
 baby_kids_3 = baby_kids.children.create(name: "ベビー服(男女兼用) ~95cm")
@@ -100,7 +100,7 @@ baby_kids_13.children.create([{name: "おふろのおもちゃ"},{name: "がら�
 baby_kids_14.children.create([{name: "お宮参り用品"},{name: "お食い初め用品"},{name: "アルバム"},{name: "手形/足形"},{name: "その他"}])
 baby_kids_15.children.create([{name: "母子手帳用品"},{name: "その他"}])
 # インテリア・住まい・小物
-interior_residence_accessory = Category.create(name: "インテリア・住まい・小物")
+interior_residence_accessory = Categorie.create(name: "インテリア・住まい・小物")
 interior_residence_accessory_1 = interior_residence_accessory.children.create(name: "キッチン/食器")
 interior_residence_accessory_2 = interior_residence_accessory.children.create(name: "ベッド/マットレス")
 interior_residence_accessory_3 = interior_residence_accessory.children.create(name: "ソファ/ソファベッド")
@@ -128,7 +128,7 @@ interior_residence_accessory_11.children.create([{name: "ごみ箱"},{name: "ウ
 interior_residence_accessory_12.children.create([{name: "正月"},{name: "成人式"},{name: "バレンタインデー"},{name: "ひな祭り"},{name: "子どもの日"},{name: "母の日"},{name: "父の日"},{name: "父の日"},{name: "サマーギフト/お中元"},{name: "夏/夏休み"},{name: "ハロウィン"},{name: "敬老の日"},{name: "七五三"},{name: "お歳暮"},{name: "クリスマス"},{name: "冬一般"},{name: "その他"}])
 interior_residence_accessory_13.children.create([{name: "すべて"}])
 # 本・音楽・ゲーム
-book_music_game = Category.create(name: "本・音楽・ゲーム")
+book_music_game = Categorie.create(name: "本・音楽・ゲーム")
 book_music_game_1 = book_music_game.children.create(name: "本")
 book_music_game_2 = book_music_game.children.create(name: "漫画")
 book_music_game_3 = book_music_game.children.create(name: "雑誌")
@@ -144,7 +144,7 @@ book_music_game_5.children.create([{name: "外国映画"},{name: "日本映画"}
 book_music_game_6.children.create([{name: "邦楽"},{name: "洋楽"},{name: "その他"}])
 book_music_game_7.children.create([{name: "家庭用ゲーム本体"},{name: "家庭用ゲームソフト"},{name: "携帯用ゲーム本体"},{name: "携帯用ゲームソフト"},{name: "PCゲーム"},{name: "その他"}])
 # おもちゃ・ホビー・グッズ
-toy_hobby_goods = Category.create(name: "おもちゃ・ホビー・グッズ")
+toy_hobby_goods = Categorie.create(name: "おもちゃ・ホビー・グッズ")
 toy_hobby_goods_1 = toy_hobby_goods.children.create(name: "おもちゃ")
 toy_hobby_goods_2 = toy_hobby_goods.children.create(name: "タレントグッズ")
 toy_hobby_goods_3 = toy_hobby_goods.children.create(name: "コミック/アニメグッズ")
@@ -168,7 +168,7 @@ toy_hobby_goods_9.children.create([{name: "陶芸"},{name: "ガラス"},{name: "
 toy_hobby_goods_10.children.create([{name: "画材"},{name: "額縁"},{name: "その他"}])
 toy_hobby_goods_11.children.create([{name: "トランプ/UNO"},{name: "カルタ/百人一首"},{name: "ダーツ"},{name: "ビリヤード"},{name: "麻雀"},{name: "パズル/ジグソーパズル"},{name: "囲碁/将棋"},{name: "オセロ/チェス"},{name: "人生ゲーム"},{name: "野球/サッカーゲーム"},{name: "スポーツ"},{name: "三輪車/乗り物"},{name: "ヨーヨー"},{name: "模型製作用品"},{name: "鉄道"},{name: "航空機"},{name: "アマチュア無線"},{name: "パチンコ/パチスロ"},{name: "その他"}])
 # コスメ・香水・美容
-cosme_perfume_beauty = Category.create(name: "コスメ・香水・美容")
+cosme_perfume_beauty = Categorie.create(name: "コスメ・香水・美容")
 cosme_perfume_beauty_1 = cosme_perfume_beauty.children.create(name: "ベースメイク")
 cosme_perfume_beauty_2 = cosme_perfume_beauty.children.create(name: "メイクアップ")
 cosme_perfume_beauty_3 = cosme_perfume_beauty.children.create(name: "ネイルケア")
@@ -192,7 +192,7 @@ cosme_perfume_beauty_9.children.create([{name: "エッセンシャルオイル"}
 cosme_perfume_beauty_10.children.create([{name: "ダイエット食品"},{name: "エクササイズ用品"},{name: "体重計"},{name: "体脂肪計"},{name: "その他"}])
 cosme_perfume_beauty_11.children.create([{name: "健康用品"},{name: "看護/介護用品"},{name: "救急/衛生用品"},{name: "その他"}])
 # 家電・スマホ・カメラ
-appliance_smartphone_camera = Category.create(name: "家電・スマホ・カメラ")
+appliance_smartphone_camera = Categorie.create(name: "家電・スマホ・カメラ")
 appliance_smartphone_camera_1 = appliance_smartphone_camera.children.create(name: "スマートフォン/携帯電話")
 appliance_smartphone_camera_2 = appliance_smartphone_camera.children.create(name: "スマホアクセサリー")
 appliance_smartphone_camera_3 = appliance_smartphone_camera.children.create(name: "PC/タブレット")
@@ -214,7 +214,7 @@ appliance_smartphone_camera_7.children.create([{name: "ヘアドライヤー"},{
 appliance_smartphone_camera_8.children.create([{name: "エアコン"},{name: "空気清浄器"},{name: "加湿器"},{name: "扇風機"},{name: "除湿機"},{name: "ファンヒーター"},{name: "電気ヒーター"},{name: "オイルヒーター"},{name: "ストーブ"},{name: "ホットカーペット"},{name: "こたつ"},{name: "電気毛布"},{name: "その他"}])
 appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 # スポーツ・レジャー
-sport_leisure = Category.create(name: "スポーツ・レジャー")
+sport_leisure = Categorie.create(name: "スポーツ・レジャー")
 sport_leisure_1 = sport_leisure.children.create(name: "ゴルフ")
 sport_leisure_2 = sport_leisure.children.create(name: "フィッシング")
 sport_leisure_3 = sport_leisure.children.create(name: "自転車")
@@ -240,13 +240,13 @@ sport_leisure_10.children.create([{name: "ダンス/バレエ"},{name: "サー�
 sport_leisure_11.children.create([{name: "テント/タープ"},{name: "ライト/ランタン"},{name: "寝袋/寝具"},{name: "テーブル/チェア"},{name: "ストーブ/コンロ"},{name: "調理器具"},{name: "食器"},{name: "登山用品"},{name: "その他"}])
 sport_leisure_12.children.create([{name: "旅行用品"},{name: "その他"}])
 # ハンドメイド
-handmade = Category.create(name: "ハンドメイド")
+handmade = Categorie.create(name: "ハンドメイド")
 handmade_1 = handmade.children.create(name: "アクセサリー（女性用）")
 handmade_2 = handmade.children.create(name: "ファッション／小物")
 handmade_3 = handmade.children.create(name: "アクセサリー／時計")
 handmade_4 = handmade.children.create(name: "日用品／インテリア")
 handmade_5 = handmade.children.create(name: "趣味／おもちゃ")
-handmade_6 = handmade.children.create(name: "キッズ・ヘビー")
+handmade_6 = handmade.children.create(name: "キッズ・べビー")
 handmade_7 = handmade.children.create(name: "素材／材料")
 handmade_8 = handmade.children.create(name: "二次創作物")
 handmade_9 = handmade.children.create(name: "その他")
@@ -259,7 +259,7 @@ handmade_6.children.create([{name: "ファッション雑貨"},{name: "スタイ
 handmade_7.children.create([{name: "各種パーツ"},{name: "生地／糸"},{name: "型紙／パターン"},{name: "その他"}])
 handmade_8.children.create([{name: "Ingress"},{name: "クリエイターズ宇宙兄弟"}])
 # チケット
-ticket = Category.create(name: "チケット")
+ticket = Categorie.create(name: "チケット")
 ticket_1 = ticket.children.create(name: "音楽")
 ticket_2 = ticket.children.create(name: "スポーツ")
 ticket_3 = ticket.children.create(name: "演劇／芸能")
@@ -276,7 +276,7 @@ ticket_5.children.create([{name: "邦画"},{name: "洋画"},{name: "その他"}]
 ticket_6.children.create([{name: "遊園地／テーマパーク"},{name: "美術館／博物館"},{name: "スキー場"},{name: "ゴルフ場"},{name: "フィットネスクラブ"},{name: "プール"},{name: "ボウリング場"},{name: "水族館"},{name: "動物園"},{name: "その他"}])
 ticket_7.children.create([{name: "ショッピング"},{name: "レストラン／食事券"},{name: "フード／ドリンク券"},{name: "宿泊券"},{name: "その他"}])
 # 自動車・オートバイ
-car = Category.create(name: "自転車・オートバイ")
+car = Categorie.create(name: "自転車・オートバイ")
 car_1 = car.children.create(name: "自動車本体")
 car_2 = car.children.create(name: "自動車タイヤ／ホイール")
 car_3 = car.children.create(name: "自動車パーツ")
@@ -290,7 +290,7 @@ car_3.children.create([{name: "サスペンション"},{name: "ブレーキ"},{n
 car_4.children.create([{name: "車内アクセサリー"},{name: "カーナビ"},{name: "カーオーディオ"},{name: "車外アクセサリー"},{name: "メンテナンス用品"},{name: "チャイルドシート"},{name: "ドライブレコーダー"},{name: "レーダー探知機"},{name: "カタログ／マニュアル"},{name: "セキュリティ"},{name: "ETC"},{name: "その他"}])
 car_5.children.create([{name: "ヘルメット／シールド"},{name: "バイクウエア／装備"},{name: "アクセサリー"},{name: "メンテナンス"},{name: "カタログ／マニュアル"},{name: "その他"}])
 # その他
-other = Category.create(name: "その他")
+other = Categorie.create(name: "その他")
 other_1 = other.children.create(name: "まとめ売り")
 other_2 = other.children.create(name: "ペット用品")
 other_3 = other.children.create(name: "食品")

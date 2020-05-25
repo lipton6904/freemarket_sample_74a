@@ -1,6 +1,6 @@
 .content
   %header
-    = render 'my-page/my-page-header'
+    = render 'mypage/my-page-header'
   .main-content
     .right-content
       .right-content__container
@@ -9,21 +9,21 @@
         .right-content__container__box
           .right-content__container__box__form
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　お名前
+              %label.right-content__container__box__form__group__label お名前
               %span.right-content__container__box__form__group__span 必須
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）山田"}
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）太郎"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　お名前カナ
+              %label.right-content__container__box__form__group__label お名前カナ
               %span.right-content__container__box__form__group__span 必須
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）ヤマダ"}
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）タロウ"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　郵便番号
+              %label.right-content__container__box__form__group__label 郵便番号
               %span.right-content__container__box__form__group__span 必須
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）123-4567", maxlength:"8"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　都道府県
+              %label.right-content__container__box__form__group__label 都道府県
               %span.right-content__container__box__form__group__span 必須
               .right-content__container__box__form__group__select-wrap
                 %select.right-content__container__box__form__group__select-wrap__select-default
@@ -77,19 +77,19 @@
                   %option{:value => "46"} 沖縄県
                   %option{:value => "47"} 未定
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　市区町村
+              %label.right-content__container__box__form__group__label 市区町村
               %span.right-content__container__box__form__group__span 必須
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）大阪府堺市"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　番地
+              %label.right-content__container__box__form__group__label 番地
               %span.right-content__container__box__form__group__span 必須
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）渋谷1-1"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　建物名
+              %label.right-content__container__box__form__group__label 建物名
               %span.right-content__container__box__form__group__span-arbitrary 任意
               %input.right-content__container__box__form__group__input{type:"text", placeholder:"例）さかいビル"}
             .right-content__container__box__form__group
-              %label.right-content__container__box__form__group__label　電話番号
+              %label.right-content__container__box__form__group__label 電話番号
               %span.right-content__container__box__form__group__span-arbitrary 任意
               %input.right-content__container__box__form__group__input{type:"number", placeholder:"例）09012345678"}
             %button.right-content__container__box__form__btn{type:"submit"} 変更する
@@ -97,40 +97,38 @@
       .my-page-bar
         %ul.my-page-bar__ul
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_mypage_path do
               マイページ
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_item_path do
               出品する
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_inquiry_path do
               お問い合わせ
         %h3.my-page-bar__head
           設定
         %ul.my-page-bar__ul
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_profile_path do
               プロフィール
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_address_path do
               発送元・お届け先住所変更
           %li.my-page-bar__ul__list
             = link_to new_credit_card_path do
               支払い方法
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_mail_password_path do
               メール/パスワード
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_user_info_path do
               本人情報 
           %li.my-page-bar__ul__list
             = link_to "#" do
               電話番号の確認
           %li.my-page-bar__ul__list
-            = link_to "#" do
+            = link_to new_logout_path do
               ログアウト
-
-  
 = render 'items/footer'
 
 
