@@ -5,9 +5,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @category = Categorie.all.order("ancestry,id").limit(13)
-    @item = Item.new
-    @item.images.new
+    if user_signed_in?
+      @category = Categorie.all.order("ancestry,id").limit(13)
+      @item = Item.new
+      @item.images.new
+    else
+      redirect_to new_user_session_path
+    end
   end
   
   def show
