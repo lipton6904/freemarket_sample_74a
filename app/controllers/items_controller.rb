@@ -30,10 +30,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @category = Categorie.order("ancestry,id").limit(13)
-  #   @item.images.find(params[:id])
-  # end
+  def edit
+    @category = Categorie.order("ancestry,id").limit(13)
+    @item.images.find(params[:id])
+  end
 
   # def update
   #   @item.update(item_params)
