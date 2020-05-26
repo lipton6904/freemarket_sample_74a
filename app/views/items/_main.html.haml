@@ -21,7 +21,7 @@
           1
         = image_tag asset_path('material/pict/pict-reason-01.jpg')
       %h3.main__top-introduction__list-box__list__text
-        %span
+        %span.name
           3分
         ですぐに出品
       .main__top-introduction__list-box__list__sub-text
@@ -32,7 +32,7 @@
           ２
         = image_tag asset_path('material/pict/pict-reason-02.jpg')
       %h3.main__top-introduction__list-box__list__text
-        %span
+        %span.name
           シンプル
         で使いやすい
       .main__top-introduction__list-box__list__sub-text
@@ -44,7 +44,7 @@
         = image_tag asset_path('material/pict/pict-reason-03.jpg')
       %h3.main__top-introduction__list-box__list__text
         手数料
-        %span
+        %span.name
           業界最安
       .main__top-introduction__list-box__list__sub-text
         最大3%でお得に出品&購入！
@@ -94,23 +94,23 @@
     .main__pickup-category__product-box__head
       新規投稿商品
     .main__pickup-category__product-box__lists
-      - @items.last(3).each do |item|
-        = link_to item_path(item.id) do
-          .main__pickup-category__product-box__lists__list
-            .main__pickup-category__product-box__lists__list__img
-              = image_tag item.images&.first&.image.to_s
-            .main__pickup-category__product-box__lists__list__body
-              %h3.main__pickup-category__product-box__lists__list__body__name
-                = item.name              
-              .main__pickup-category__product-box__lists__list__body__details
-                %ul.main__pickup-category__product-box__lists__list__body__details__box
-                  %li.main__pickup-category__product-box__lists__list__body__details__box__money
-                    = item.price_id
-                    円
-                  %li.main__pickup-category__product-box__lists__list__body__details__box__star
-                    ★ 0
-                %p.main__pickup-category__product-box__lists__list__body__details__tax
-                  (税込)
+    - @items.last(3).each do |item|
+      = link_to item_path(item.id) do
+        .main__pickup-category__product-box__lists__list
+          .main__pickup-category__product-box__lists__list__img
+            = image_tag item.images&.first&.image.to_s
+          .main__pickup-category__product-box__lists__list__body
+            %h3.main__pickup-category__product-box__lists__list__body__name
+              = item.name              
+            .main__pickup-category__product-box__lists__list__body__details
+              %ul.main__pickup-category__product-box__lists__list__body__details__box
+                %li.main__pickup-category__product-box__lists__list__body__details__box__money
+                  = item.price_id
+                  円
+                %li.main__pickup-category__product-box__lists__list__body__details__box__star
+                  ★ 0
+              %p.main__pickup-category__product-box__lists__list__body__details__tax
+                (税込)
 .main__pickup-category
   %h2.main__pickup-category__title
     ピックアップブランド

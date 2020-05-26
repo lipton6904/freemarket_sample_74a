@@ -3,7 +3,7 @@
     = link_to root_path do
       = image_tag 'material/logo/logo.png'
   .sell__content
-    = form_with model: @item do |f|
+    = form_with model: @item, local:true do |f|
       .sell__content__box
         .sell__content__box__image
           .sell__content__box__image__frame
@@ -13,23 +13,26 @@
             %p.sell__content__box__image__frame__comment 最大10枚までアップロードできます
             .post__drop__box__container
               .prev-content
-                - @item.images.each do |image|
+                - @item.images.each.with_index do |image,i|
                   .preview-box
                     .upper-box
                       = image_tag image.image.url, width: "122", height: "122", alt: "preview"
                     .lower-box
+                      %label.edit-btn
+                        %div{class:"update-box_#{i}"} 編集
                       .delete-box
                         .delete-btn
                           %span 削除
-              .label-content
+              .label-content__edit
                 = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
-                  %i.fas.fa-camera
+                  .edit_camera
+                    %i.fas.fa-camera#photo
               .hidden-content
                 = f.fields_for :images do |i|
-                  = i.file_field :image, class: "hidden-field"
-                  = i.check_box:_destroy, class: "hidden-checkbox"
+                  = i.file_field :image, class: "image-field"
+                  = i.check_box:_destroy, class: "image-checkbox"
                 - @item.images.length.upto(9) do |i|
-                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"image-field", type:"file"}
         .sell__block__form__name
           .form-group__name
         .sell__content__box__product
@@ -53,13 +56,16 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :categorie_id,  @category, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box"
+              = f.select :categorie_id, options_for_select(@category_parent_array.map{|c|[c[:name], c[:id],{'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.parent.parent.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'category_select'}
+              #children_wrapper.sell__content__box__the-details__category__select
+                = f.select :categorie_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.parent.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'child_category'}
+              #grandchildren_wrapper.sell__content__box__the-details__category__select
+                = f.select :categorie_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'grandchild_category'}
           .sell__content__box__the-details__brand
-            -# .sell__content__box__the-details__brand__name.titel
-            -#   ブランド
-            -#   %span.any 任意
-            -# .sell__content__box__the-details__brand__select
-              -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
+            .sell__content__box__the-details__brand__select
+              サイズ
+              = f.text_field :size, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）M"
+
           .sell__content__box__the-details__status
             .sell__content__box__the-details__status__name.titel
               商品の状態
@@ -117,3 +123,4 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
             = link_to "加盟店規約","#",class: "sell_link"
             に同意したことになります。
+= render "footer"

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  
-  before_action :set_item, only: [:edit, :destroy, :show]
 
+  before_action :set_item, only: [:edit,:show,:destroy,:update]
+  
   def index
     @items = Item.all
   end
@@ -24,34 +24,39 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if  @item.save
-      redirect_to root_path, notice: '出品が完了しました'
+      redirect_to root_path, notice: '出品完了しました'
     else
-      redirect_to root_path
+      flash[:alert] = '出品できませんでした'
+      redirect_to action: "new"
     end
   end
 
   def edit
     @category = Categorie.order("ancestry,id").limit(13)
+    # 親セレクトボックスの初期値
+    @category_parent_array = Categorie.where(ancestry: nil)
+    @category_child_array = @item.categorie.parent.parent.children
+    @category_grandchild_array = @item.categorie.parent.children
   end
 
   def update
-    if@item.update(item_params)
-      redirect_to root_path
+    if  @item.update(item_params)
+      redirect_to root_path, notice: '編集完了しました'
     else
-      redirect_to edit_item_item, notice: "変更ができませんでした"
+      flash[:alert] = '編集できませんでした'
+      redirect_to action: "edit"
     end
-
   end
 
   def destroy
     if user_signed_in? && current_user.id == @item.seller_id
-      if@item.destroy
+      if @item.destroy
         redirect_to root_path, notice: '削除が完了しました'
       else
-        redirect_to root_path, notice: '削除できませんでした'
+        redirect_to root_path, alert: '削除できませんでした'
       end
     else
-      redirect_to root_path, notice: '権限がありません'
+      redirect_to root_path, alert: '権限がありません'
     end
   end
 
@@ -62,12 +67,10 @@ class ItemsController < ApplicationController
   def category_grandchildren
     @category_grandchildren = Categorie.find(params[:productcategory]).children
   end
-
-
-
+  
 private
   def item_params
-    params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
