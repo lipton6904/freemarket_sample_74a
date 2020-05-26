@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function(){
         if ($(`#preview-box__${id}`).length == 0) {
           let count = $('.preview-box').length;
           let html = buildHTML(id);
-          let prevContent = $('.label-content').prev();
+          let prevContent = $('.label-content__edit').prev();
           $(prevContent).append(html);
         }
         $(`#preview-box__${id} img`).attr('src', `${image}`);

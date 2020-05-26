@@ -283,17 +283,6 @@ display: flex;
     line-height: 155px;
     text-align: center;
   }
-  .hidden-content {
-    .hidden-field {
-     
-  .image-content {
-    .image-field {
-      display: none;
-    }
-    .image-checkbox {
-      display: none;
-    }
-  }
 }
 #label-box--6{
   width: 150px;
@@ -304,5 +293,8 @@ display: flex;
 }
 
 .image-field {
+  display: none;
+}
+.image-checkbox {
   display: none;
 }

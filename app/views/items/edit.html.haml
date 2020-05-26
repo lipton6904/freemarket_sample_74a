@@ -13,18 +13,16 @@
             %p.sell__content__box__image__frame__comment 最大10枚までアップロードできます
             .post__drop__box__container
               .prev-content
-                - @item.images.each do |image|
+                - @item.images.each.with_index do |image,i|
                   .preview-box
                     .upper-box
                       = image_tag image.image.url, width: "122", height: "122", alt: "preview"
                     .lower-box
                       %label.edit-btn
-                        .update-box_0 編集
+                        %div{class:"update-box_#{i}"} 編集
                       .delete-box
                         .delete-btn
                           %span 削除
-                        -# .edit-btn
-                        -#   %span 編集
               .label-content__edit
                 = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
                   .edit_camera
