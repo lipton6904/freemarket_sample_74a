@@ -18,10 +18,8 @@ $(document).on('turbolinks:load', function(){
     //items/:i/editページへリンクした際のアクション=======================================
     if (window.location.href.match(/\/items\/\d+\/edit/)){
       //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.label-content').prev();
-      // labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      // $('.label-content').css('width', labelWidth);
-      //プレビューにidを追加
+      var prevContent = $('.label-content__edit').prev();
+       //プレビューにidを追加
       $('.preview-box').each(function(index, box){
         $(box).attr('id', `preview-box__${index}`);
       })
@@ -32,16 +30,14 @@ $(document).on('turbolinks:load', function(){
       var count = $('.preview-box').length;
       //プレビューが5あるときは、投稿ボックスを消しておく
       if (count == 10) {
-        $('.label-content').hide();
+        $('.label-content__edit').hide();
       }
     }
     //=============================================================================
     // ラベルのwidth操作
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-      var prevContent = $('.label-content').prev();
-      // labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      // $('.label-content').css('width', labelWidth);
+      var prevContent = $('.label-content__edit').prev();
     }
     // プレビューの追加
     $(document).on('change', '.hidden-field', function() {
@@ -63,7 +59,7 @@ $(document).on('turbolinks:load', function(){
           var count = $('.preview-box').length;
           var html = buildHTML(id);
           //ラベルの直前のプレビュー群にプレビューを追加
-          var prevContent = $('.label-content').prev();
+          var prevContent = $('.label-content__edit').prev();
           $(prevContent).append(html);
         }
         //イメージを追加
@@ -71,7 +67,7 @@ $(document).on('turbolinks:load', function(){
         var count = $('.preview-box').length;
         //プレビューが10個あったらラベルを隠す 
         if (count == 10) { 
-          $('.label-content').hide();
+          $('.label-content__edit').hide();
         }
         //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
         if ($(`#item_images_attributes_${id}__destroy`)){
@@ -101,7 +97,7 @@ $(document).on('turbolinks:load', function(){
         var count = $('.preview-box').length;
         //5個めが消されたらラベルを表示
         if (count == 9) {
-          $('.label-content').show();
+          $('.label-content__edit').show();
         }
         setLabel(count);
         if(id < 10){
@@ -112,7 +108,7 @@ $(document).on('turbolinks:load', function(){
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
         if (count == 10) {
-          $('.label-content').show();
+          $('.label-content__edit').show();
         }
         //ラベルのwidth操作
         setLabel();

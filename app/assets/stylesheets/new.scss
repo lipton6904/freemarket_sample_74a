@@ -335,6 +335,12 @@
       }
     }
   }
+  .label-content{
+    background-color: rgb(245, 245, 245);
+    border: 1px dashed rgb(204, 204, 204);
+    line-height: 155px;
+    text-align: center;
+  }
   .hidden-content {
     .hidden-field {
       display: none;

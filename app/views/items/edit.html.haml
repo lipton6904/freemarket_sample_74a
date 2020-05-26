@@ -21,9 +21,12 @@
                       .delete-box
                         .delete-btn
                           %span 削除
-              .label-content
+                        -# .edit-btn
+                        -#   %span 編集
+              .label-content__edit
                 = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
-                  %i.fas.fa-camera
+                  .edit_camera
+                    %i.fas.fa-camera#photo
               .hidden-content
                 = f.fields_for :images do |i|
                   = i.file_field :image, class: "hidden-field"
