@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+
+
+  before_action :set_item, except: [:index, :new, :create, :update, :show]
   
-  before_action :set_item, only: [:edit, :destroy, :show]
 
   def index
     @items = Item.all
@@ -32,10 +34,29 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Categorie.order("ancestry,id").limit(13)
+    @parents = Category.order("ancestry,id").limit(13)
     @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+  end
+
+  def destroy
+    if user_signed_in? && current_user.id == @item.seller_id
+      if@item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path, notice: '削除できませんでした'
+      end
+    else
+      redirect_to root_path, notice: '権限がありません'
+    end
+  end
+
+  def update
+    binding.pry
     @item.update(item_params)
     redirect_to root_path
   end

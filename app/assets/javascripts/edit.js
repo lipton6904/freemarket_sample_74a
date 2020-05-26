@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
+
     //プレビューのhtmlを定義
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
@@ -78,6 +79,7 @@ $(document).on('turbolinks:load', function(){
           $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
         //=============================================================================
+
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
@@ -86,13 +88,15 @@ $(document).on('turbolinks:load', function(){
         }
       }
     });
+    
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-      //新規登録時と編集時の場合分け==========================================================
+
+      //新規登録時と編集時の場合分け========================
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
@@ -108,12 +112,14 @@ $(document).on('turbolinks:load', function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       } else {
+
         //投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
         if (count == 10) {
           $('.label-content').show();
         }
+
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
@@ -122,14 +128,3 @@ $(document).on('turbolinks:load', function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       }
-    });
-  });
-});
-
-// カテゴリ
-// カテゴリーセレクトボックス
-$(function(){
-  function appendOption(category){
-    var html = `<option value="${category.id}">${category.name}</option>`;
-    return html;
-  }
