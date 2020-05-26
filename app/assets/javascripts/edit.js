@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function(){
                       <img src="" alt="preview">
                     </div>
                     <div class="lower-box">
-                      <div class="delete-box" id="delete_btn_${count}">
+                      <div class="delete-box delete-btn" id="delete_btn_${count}">
                         <span>削除</span>
                       </div>
                     </div>
@@ -14,9 +14,6 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
     if (window.location.href.match(/\/items\/\d+\/edit/)){
-      let prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
       $('.preview-box').each(function(index, box){
         $(box).attr('id', `preview-box__${index}`);
       })
@@ -29,9 +26,6 @@ $(document).on('turbolinks:load', function(){
       }
     }
     function setLabel() {
-      let prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
     }
     $(document).on('change', '.hidden-field', function() {
       setLabel();

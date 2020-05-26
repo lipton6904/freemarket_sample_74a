@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @parents = Categorie.order("ancestry,id").limit(13)
+    @category = Categorie.order("ancestry,id").limit(13)
     @item = Item.find(params[:id])
   end
 
