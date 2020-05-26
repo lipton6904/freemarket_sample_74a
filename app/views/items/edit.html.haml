@@ -14,6 +14,7 @@
             .post__drop__box__container
               .prev-content
 
+
                 //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
                 - @item.images.each do |image|
                   .preview-box
@@ -24,12 +25,12 @@
                         .delete-btn
                           %span 削除
               .label-content
-
                 //プレビューの数に合わせてforオプションを指定
                 = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
                   %i.fas.fa-camera
               .hidden-content
                 = f.fields_for :images do |i|
+
 
                   //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                   = i.file_field :image, class: "hidden-field"
@@ -61,13 +62,12 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}, class: "sell__content__box__the-details__category__select__box"
+              = f.collection_select :categorie_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "sell__content__box__the-details__category__select__box"}
           .sell__content__box__the-details__brand
-            -# .sell__content__box__the-details__brand__name.titel
-            -#   ブランド
-            -#   %span.any 任意
-            -# .sell__content__box__the-details__brand__select
-              -# = f.text_field :brand, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）シャネル"
+            .sell__content__box__the-details__brand__select
+              サイズ
+              = f.text_field :size, class:"sell__content__box__the-details__brand__select__box", placeholder: "例）M"
+
           .sell__content__box__the-details__status
             .sell__content__box__the-details__status__name.titel
               商品の状態
@@ -125,3 +125,4 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
             = link_to "加盟店規約","#",class: "sell_link"
             に同意したことになります。
+

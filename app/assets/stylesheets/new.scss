@@ -254,6 +254,8 @@
   display: flex;
   flex-wrap: wrap;
 
+
+
   //プレビュー表示欄のCSS
   .prev-content {
     display: flex;
@@ -326,7 +328,6 @@
       }
     }
   }
-
   //file_fieldのcss
   .hidden-content {
     .hidden-field {
@@ -344,6 +345,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+
 #label-box--0{
   width: 100%;
 }
@@ -378,3 +380,4 @@ img{
   width: 124px;
   height: 124px;
 }
+

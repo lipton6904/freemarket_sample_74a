@@ -15,7 +15,6 @@ $(document).on('turbolinks:load', function(){
                   </div>`
       return html;
     }
-
     // 投稿編集時
     //items/:i/editページへリンクした際のアクション=======================================
     if (window.location.href.match(/\/items\/\d+\/edit/)){
@@ -38,7 +37,6 @@ $(document).on('turbolinks:load', function(){
       }
     }
     //=============================================================================
-
     // ラベルのwidth操作
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
@@ -46,7 +44,6 @@ $(document).on('turbolinks:load', function(){
       // labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       // $('.label-content').css('width', labelWidth);
     }
-
     // プレビューの追加
     $(document).on('change', '.hidden-field', function() {
       setLabel();
@@ -77,7 +74,6 @@ $(document).on('turbolinks:load', function(){
         if (count == 10) { 
           $('.label-content').hide();
         }
-
         //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
         if ($(`#item_images_attributes_${id}__destroy`)){
           $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
@@ -92,7 +88,7 @@ $(document).on('turbolinks:load', function(){
         }
       }
     });
-
+    
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
@@ -100,8 +96,7 @@ $(document).on('turbolinks:load', function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
 
-      //新規登録時と編集時の場合分け==========================================================
-
+      //新規登録時と編集時の場合分け========================
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
@@ -115,7 +110,6 @@ $(document).on('turbolinks:load', function(){
         setLabel(count);
         if(id < 10){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
-
         }
       } else {
 
@@ -134,7 +128,3 @@ $(document).on('turbolinks:load', function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       }
-      //=============================================================================
-    });
-  });
-});
