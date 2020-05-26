@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
 
+
   before_action :set_item, only: [:edit,:show,:destroy,:update]
+
   
+
+  before_action :set_item, only: [:edit,:update, :destroy, :show]
+
 
   def index
     @items = Item.all
@@ -34,6 +39,10 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Categorie.order("ancestry,id").limit(13)
+    # 親セレクトボックスの初期値
+    @category_parent_array = Categorie.where(ancestry: nil)
+    @category_child_array = @item.categorie.parent.parent.children
+    @category_grandchild_array = @item.categorie.parent.children
   end
 
   def update

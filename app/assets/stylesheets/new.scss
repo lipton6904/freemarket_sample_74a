@@ -276,6 +276,16 @@ display: flex;
     line-height: 155px;
     text-align: center;
   }
+  
+  .label-content{
+    background-color: rgb(245, 245, 245);
+    border: 1px dashed rgb(204, 204, 204);
+    line-height: 155px;
+    text-align: center;
+  }
+  .hidden-content {
+    .hidden-field {
+     
   .image-content {
     .image-field {
       display: none;
@@ -285,6 +295,14 @@ display: flex;
     }
   }
 }
+#label-box--6{
+  width: 150px;
+}
+.prev-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .image-field {
   display: none;
 }
