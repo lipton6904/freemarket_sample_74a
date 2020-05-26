@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
 
+
+  before_action :set_item, only: [:edit,:show,:destroy,:update]
+
   
 
   before_action :set_item, only: [:edit,:update, :destroy, :show]
@@ -27,9 +30,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if  @item.save
-      redirect_to root_path, notice: '出品が完了しました'
+      redirect_to root_path, notice: '出品完了しました'
     else
-      redirect_to root_path
+      flash[:alert] = '出品できませんでした'
+      redirect_to action: "new"
     end
   end
 
@@ -42,19 +46,23 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
+    if  @item.update(item_params)
+      redirect_to root_path, notice: '編集完了しました'
+    else
+      flash[:alert] = '編集できませんでした'
+      redirect_to action: "edit"
+    end
   end
 
   def destroy
     if user_signed_in? && current_user.id == @item.seller_id
-      if@item.destroy
+      if @item.destroy
         redirect_to root_path, notice: '削除が完了しました'
       else
-        redirect_to root_path, notice: '削除できませんでした'
+        redirect_to root_path, alert: '削除できませんでした'
       end
     else
-      redirect_to root_path, notice: '権限がありません'
+      redirect_to root_path, alert: '権限がありません'
     end
   end
 

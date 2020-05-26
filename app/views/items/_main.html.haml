@@ -94,7 +94,7 @@
     .main__pickup-category__product-box__head
       新規投稿商品
     .main__pickup-category__product-box__lists
-    - @items.each do |item|
+    - @items.last(3).each do |item|
       = link_to item_path(item.id) do
         .main__pickup-category__product-box__lists__list
           .main__pickup-category__product-box__lists__list__img
