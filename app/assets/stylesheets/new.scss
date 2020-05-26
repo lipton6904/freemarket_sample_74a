@@ -253,8 +253,6 @@
   margin: 16px auto 0;
   display: flex;
   flex-wrap: wrap;
-
-  //プレビュー表示欄のCSS
   .prev-content {
     display: flex;
     flex-wrap: wrap;
@@ -293,8 +291,6 @@
       }
     }
   }
-
-  //投稿クリックエリアのCSS
   .label-content{
     @include he_wi(167px,100%);
     background-color: rgb(245, 245, 245);
@@ -326,8 +322,6 @@
       }
     }
   }
-
-  //file_fieldのcss
   .hidden-content {
     .hidden-field {
       display: none;
@@ -343,38 +337,4 @@
 .prev-content {
   display: flex;
   flex-wrap: wrap;
-}
-#label-box--0{
-  width: 100%;
-}
-#label-box--1{
-  width: 496px;
-}
-#label-box--2{
-  width: 372px;
-}
-#label-box--3{
-  width: 248px;
-}
-#label-box--4{
-  width: 124px;
-}
-#label-box--5{
-  width: 100%;
-}
-#label-box--6{
-  width: 496px;
-}
-#label-box--7{
-  width: 372px;
-}
-#label-box--8{
-  width: 248px;
-}
-#label-box--9{
-  width: 124px;
-}
-img{
-  width: 124px;
-  height: 124px;
 }
