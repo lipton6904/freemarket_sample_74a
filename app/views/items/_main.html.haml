@@ -111,8 +111,6 @@
                   ★ 0
               %p.main__pickup-category__product-box__lists__list__body__details__tax
                 (税込)
-
-
 .main__pickup-category
   %h2.main__pickup-category__title
     ピックアップブランド
@@ -120,45 +118,19 @@
     .main__pickup-category__product-box__head
       アーカイブ
     .main__pickup-category__product-box__lists
-      .main__pickup-category__product-box__lists__list
-        .main__pickup-category__product-box__lists__list__img
-          = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
-        .main__pickup-category__product-box__lists__list__body
-          %h3.main__pickup-category__product-box__lists__list__body__name
-            product3
-          .main__pickup-category__product-box__lists__list__body__details
-            %ul.main__pickup-category__product-box__lists__list__body__details__box
-              %li.main__pickup-category__product-box__lists__list__body__details__box__money
-                30000円
-              %li.main__pickup-category__product-box__lists__list__body__details__box__star
-                ★ 0
-            %p.main__pickup-category__product-box__lists__list__body__details__tax
-              (税込)
-      .main__pickup-category__product-box__lists__list
-        .main__pickup-category__product-box__lists__list__img
-          = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
-        .main__pickup-category__product-box__lists__list__body
-          %h3.main__pickup-category__product-box__lists__list__body__name
-            product2
-          .main__pickup-category__product-box__lists__list__body__details
-            %ul.main__pickup-category__product-box__lists__list__body__details__box
-              %li.main__pickup-category__product-box__lists__list__body__details__box__money
-                20000円
-              %li.main__pickup-category__product-box__lists__list__body__details__box__star
-                ★ 0
-            %p.main__pickup-category__product-box__lists__list__body__details__tax
-              (税込)
-      .main__pickup-category__product-box__lists__list
-        .main__pickup-category__product-box__lists__list__img
-          = image_tag asset_path('material/icon/member_photo_noimage_thumb.png')
-        .main__pickup-category__product-box__lists__list__body
-          %h3.main__pickup-category__product-box__lists__list__body__name
-            product1
-          .main__pickup-category__product-box__lists__list__body__details
-            %ul.main__pickup-category__product-box__lists__list__body__details__box
-              %li.main__pickup-category__product-box__lists__list__body__details__box__money
-                10000円
-              %li.main__pickup-category__product-box__lists__list__body__details__box__star
-                ★ 0
-            %p.main__pickup-category__product-box__lists__list__body__details__tax
-              (税込)
+      - @items.last(3).each do |item|
+        = link_to item_path(item.id) do
+          .main__pickup-category__product-box__lists__list
+            .main__pickup-category__product-box__lists__list__img
+              = image_tag item.images&.first&.image.to_s
+            .main__pickup-category__product-box__lists__list__body
+              %h3.main__pickup-category__product-box__lists__list__body__name
+                = item.name              
+              .main__pickup-category__product-box__lists__list__body__details
+                %ul.main__pickup-category__product-box__lists__list__body__details__box
+                  %li.main__pickup-category__product-box__lists__list__body__details__box__money
+                    = item.price_id
+                  %li.main__pickup-category__product-box__lists__list__body__details__box__star
+                    ★ 0
+                %p.main__pickup-category__product-box__lists__list__body__details__tax
+                  (税込)

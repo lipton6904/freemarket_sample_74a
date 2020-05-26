@@ -9,7 +9,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :derivery_fee
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :days_untill_shipping
-
   validates :images, presence: true, length: {manimum: 1, maximum: 10}
   validates :name,length: { in: 1..40 }
   validates :explanation,length: { in: 1..1000 }

@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+
     if  @item.update(item_params)
       redirect_to root_path, notice: '編集完了しました'
     else
@@ -71,6 +72,5 @@ private
   end
   def set_item
     @item = Item.find(params[:id])
-    
   end
 end
