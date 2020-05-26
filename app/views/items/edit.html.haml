@@ -3,7 +3,7 @@
     = link_to root_path do
       = image_tag 'material/logo/logo.png'
   .sell__content
-    = form_with model: @item do |f|
+    = form_with model: @item, local:true do |f|
       .sell__content__box
         .sell__content__box__image
           .sell__content__box__image__frame
@@ -53,7 +53,11 @@
               カテゴリー
               %span.required 必須
             .sell__content__box__the-details__category__select
-              = f.collection_select :categorie_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "sell__content__box__the-details__category__select__box"}
+              = f.select :categorie_id, options_for_select(@category_parent_array.map{|c|[c[:name], c[:id],{'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.parent.parent.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'category_select'}
+              #children_wrapper.sell__content__box__the-details__category__select
+                = f.select :categorie_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.parent.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'child_category'}
+              #grandchildren_wrapper.sell__content__box__the-details__category__select
+                = f.select :categorie_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.categorie.id), {}, {class: 'sell__content__box__the-details__category__select__box', id: 'grandchild_category'}
           .sell__content__box__the-details__brand
             .sell__content__box__the-details__brand__select
               サイズ
