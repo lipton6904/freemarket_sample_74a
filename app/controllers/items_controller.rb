@@ -32,12 +32,15 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Categorie.order("ancestry,id").limit(13)
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item.update(item_params)
-    redirect_to root_path
+    if@item.update(item_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_item, notice: "変更ができませんでした"
+    end
+
   end
 
   def destroy
