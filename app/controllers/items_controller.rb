@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+
   
+
   before_action :set_item, only: [:edit,:update, :destroy, :show]
+
 
   def index
     @items = Item.all
@@ -39,8 +42,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to root_path
   end
 
   def destroy
@@ -62,9 +65,7 @@ class ItemsController < ApplicationController
   def category_grandchildren
     @category_grandchildren = Categorie.find(params[:productcategory]).children
   end
-
-
-
+  
 private
   def item_params
     params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
