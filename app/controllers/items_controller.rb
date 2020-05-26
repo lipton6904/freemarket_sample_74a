@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show,:destroy,:update]
   
+
   def index
     @items = Item.all
   end
@@ -62,18 +63,10 @@ class ItemsController < ApplicationController
   
 private
   def item_params
-    params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size_id, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price_id, :explanation, :categorie_id, :size, :condition_id, :derivery_fee_id, :shipping_area_id, :days_untill_shipping_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
     
   end
-
-
-
-  # def set_categor
-  # @smallcategory =Category.find(Category.find(@items.category_id).
-  # @category = Category.find(Category.find(@items.category_id). 
-  # @bigcategory = Category.find(Category.find(@items.category_id)
-  # end
 end
