@@ -25,8 +25,11 @@ class BuysController < ApplicationController
       currency: 'jpy', #日本円
     )
     @item.buyer_id = current_user.id
-    @item.save
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path, alert: '購入しました'
+    else
+      redirect_to root_path, alert: '購入できませんでした'
+    end
   end
 
   private

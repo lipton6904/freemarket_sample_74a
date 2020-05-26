@@ -18,18 +18,20 @@
                     .upper-box
                       = image_tag image.image.url, width: "122", height: "122", alt: "preview"
                     .lower-box
+                      %label.edit-btn
+                        .update-box_0 編集
                       .delete-box
                         .delete-btn
                           %span 削除
               .label-content
                 = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
                   %i.fas.fa-camera
-              .hidden-content
+              .image-content
                 = f.fields_for :images do |i|
-                  = i.file_field :image, class: "hidden-field"
-                  = i.check_box:_destroy, class: "hidden-checkbox"
+                  = i.file_field :image, class: "image-field"
+                  = i.check_box:_destroy, class: "image-checkbox"
                 - @item.images.length.upto(9) do |i|
-                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"image-field", type:"file"}
         .sell__block__form__name
           .form-group__name
         .sell__content__box__product
@@ -116,4 +118,4 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
             = link_to "加盟店規約","#",class: "sell_link"
             に同意したことになります。
-
+= render "footer"

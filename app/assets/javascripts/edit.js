@@ -6,6 +6,9 @@ $(document).on('turbolinks:load', function(){
                       <img src="" alt="preview">
                     </div>
                     <div class="lower-box">
+                    <label class="edit-btn">
+                      <div class="update-box_${count}">編集</div>
+                      </label>
                       <div class="delete-box delete-btn" id="delete_btn_${count}">
                         <span>削除</span>
                       </div>
@@ -20,6 +23,9 @@ $(document).on('turbolinks:load', function(){
       $('.delete-box').each(function(index, box){
         $(box).attr('id', `delete_btn_${index}`);
       })
+      $('.update-box').each(function(index, box){
+        $(box).attr('id', `edit_btn_${index}`);
+      })
       let count = $('.preview-box').length;
       if (count == 10) {
         $('.label-content').hide();
@@ -27,7 +33,7 @@ $(document).on('turbolinks:load', function(){
     }
     function setLabel() {
     }
-    $(document).on('change', '.hidden-field', function() {
+    $(document).on('change', '.image-field', function() {
       setLabel();
       let id = $(this).attr('id').replace(/[^0-9]/g, '');
       $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
@@ -76,11 +82,16 @@ $(document).on('turbolinks:load', function(){
         if (count == 10) {
           $('.label-content').show();
         }
+        
         setLabel();
         if(id < 10){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       }
     });
+  $(document).on('click', '.preview-box', function() {
+    let id = $(this).attr('id').replace(/[^0-9]/g, '');
+    $(`#item_images_attributes_${id}_image`).insertAfter(`.update-box_${id}`);
+    }); 
   });
 });
