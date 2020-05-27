@@ -10,9 +10,11 @@ class BuysController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
   def show
     @items = Item.includes(:images).order('created_at DESC')
   end
+
   def pay
     @item = Item.find(params[:item_id])
     @card = CreditCard.where(user_id: current_user.id).first
@@ -22,17 +24,28 @@ class BuysController < ApplicationController
       customer: @card.customer_id, #顧客ID
       currency: 'jpy', #日本円
     )
+
+    unless @card = current_user.id
+      redirect_to root_path
+    end
     @item.buyer_id = current_user.id
-    if @item.destroy
+    if 
+      @item.destroy
       redirect_to root_path, alert: '購入しました'
     else
       redirect_to root_path, alert: '購入できませんでした'
     end
+
+    @item.save
+    redirect_to root_path
   end
+
   private
+
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first if CreditCard.where(user_id: current_user.id).present?
   end
+
   def set_item
     @item = Item.find(params[:id])
   end
