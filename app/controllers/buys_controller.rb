@@ -29,7 +29,7 @@ class BuysController < ApplicationController
       @item.destroy
       redirect_to root_path, alert: '購入しました'
     else
-      redirect_to new_credit_card_path,alert: '購入出来ませんクレジットカードの登録をしてください'
+      redirect_to new_credit_card_path,alert: '購入出来ません/クレジットカードの登録をしてください'
     end
   end
 
