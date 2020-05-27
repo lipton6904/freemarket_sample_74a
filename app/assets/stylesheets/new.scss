@@ -237,8 +237,9 @@ display: flex;
 }
 .item-image{
   @include he_wi(157px,124px);
-  float: left;
   border: 1px dashed rgb(204, 204, 204);
+  display: flex;
+  flex-wrap: wrap;
 }
 .fa-camera{
   font-size: 40px;
@@ -297,4 +298,14 @@ display: flex;
 }
 .image-checkbox {
   display: none;
+}
+.item-image__operetion--delete{
+  width: 123px;
+  text-align: center;
+  background-color: white;
+  
+}
+#image-box-1{
+  display: flex;
+  flex-wrap: wrap;
 }
