@@ -31,9 +31,6 @@ class BuysController < ApplicationController
     else
       redirect_to new_credit_card_path,alert: '購入出来ませんクレジットカードの登録をしてください'
     end
-
-    @item.save
-    redirect_to root_path
   end
 
   private
