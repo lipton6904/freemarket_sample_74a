@@ -16,18 +16,25 @@ class BuysController < ApplicationController
   def pay
     @item = Item.find(params[:item_id])
     @card = CreditCard.where(user_id: current_user.id).first
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    Payjp::Charge.create(
-      amount: @item.price_id, #支払金額
-      customer: @card.customer_id, #顧客ID
-      currency: 'jpy', #日本円
-    )
-    @item.buyer_id = current_user.id
-    if @item.destroy
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      Payjp::Charge.create(
+        amount: @item.price_id, #支払金額
+        customer: @card.customer_id, #顧客ID
+        currency: 'jpy', #日本円
+      )
+      @item.buyer_id = current_user.id
+      @item.destroy
       redirect_to root_path, alert: '購入しました'
     else
-      redirect_to root_path, alert: '購入できませんでした'
+      redirect_to new_credit_card_path, alert: '購入できませんでした、クレジットカードを登録してください'
     end
+    # @item.buyer_id = current_user.id
+    # if @item.destroy
+    #   redirect_to root_path, alert: '購入しました'
+    # else
+    #   redirect_to root_path, alert: '購入できませんでした'
+    # end
   end
   private
   def set_card
