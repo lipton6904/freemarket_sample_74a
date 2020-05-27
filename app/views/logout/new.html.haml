@@ -6,8 +6,8 @@
       .right-content__container
         .right-content__container__form
           .right-content__container__form__small
-            %button.right-content__container__form__small__btn{type:"submit"}
-              ログアウト
+            - if user_signed_in?
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
     .left-content
       .my-page-bar
         %ul.my-page-bar__ul
